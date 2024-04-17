@@ -1,0 +1,537 @@
+<!doctype html>
+<html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><title>CSS 基本语法 - 冷冷</title><link rel="manifest" href="/manifest.json"><meta name="theme-color" content="#f7f7f7"><meta name="application-name" content="Icaurs - Hexo Theme"><meta name="msapplication-TileImage" content="https://s2.loli.net/2022/04/18/JlfLcsOwU8myTbB.jpg"><meta name="msapplication-TileColor" content="#f7f7f7"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Icaurs - Hexo Theme"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="HTML 中引入 CSS 的方式有 4 种方式可以在 HTML 中引入 CSS。其中有 2 种方式是在 HTML 文件中直接添加 CSS 代码，另外两种是引入 外部 CSS 文件。下面我们就来看看这些方式和它们的优缺点。"><meta property="og:type" content="blog"><meta property="og:title" content="CSS 基本语法"><meta property="og:url" content="http://example.com/2019/05/09/%E5%89%8D%E7%AB%AF/CSS/CSS%20%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/"><meta property="og:site_name" content="冷冷"><meta property="og:description" content="HTML 中引入 CSS 的方式有 4 种方式可以在 HTML 中引入 CSS。其中有 2 种方式是在 HTML 文件中直接添加 CSS 代码，另外两种是引入 外部 CSS 文件。下面我们就来看看这些方式和它们的优缺点。"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="http://example.com/img/%E5%89%8D%E7%AB%AF/css.png"><meta property="article:published_time" content="2019-05-09T13:10:43.000Z"><meta property="article:modified_time" content="2020-10-10T04:04:00.000Z"><meta property="article:author" content="冷冷"><meta property="article:tag" content="CSS"><meta property="twitter:card" content="summary"><meta property="twitter:image:src" content="http://example.com/img/%E5%89%8D%E7%AB%AF/css.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com/2019/05/09/%E5%89%8D%E7%AB%AF/CSS/CSS%20%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/"},"headline":"CSS 基本语法","image":["http://example.com/img/%E5%89%8D%E7%AB%AF/css.png"],"datePublished":"2019-05-09T13:10:43.000Z","dateModified":"2020-10-10T04:04:00.000Z","author":{"@type":"Person","name":"冷冷"},"publisher":{"@type":"Organization","name":"冷冷","logo":{"@type":"ImageObject","url":"https://s2.loli.net/2022/04/18/JlfLcsOwU8myTbB.jpg"}},"description":"HTML 中引入 CSS 的方式有 4 种方式可以在 HTML 中引入 CSS。其中有 2 种方式是在 HTML 文件中直接添加 CSS 代码，另外两种是引入 外部 CSS 文件。下面我们就来看看这些方式和它们的优缺点。"}</script><link rel="canonical" href="http://example.com/2019/05/09/%E5%89%8D%E7%AB%AF/CSS/CSS%20%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/"><link rel="icon" href="https://s2.loli.net/2022/04/18/JlfLcsOwU8myTbB.jpg"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.0.0/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><!--!--><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css"><script src="https://www.googletagmanager.com/gtag/js?id=UA-72437521-5" async></script><script>window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+    
+        gtag('config', 'UA-72437521-5');</script><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.css"><style>.pace{-webkit-pointer-events:none;pointer-events:none;-webkit-user-select:none;-moz-user-select:none;user-select:none}.pace-inactive{display:none}.pace .pace-progress{background:#3273dc;position:fixed;z-index:2000;top:0;right:100%;width:100%;height:2px}</style><script src="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/pace.min.js"></script><!--!--><!--!--><!-- hexo injector head_end start --><script>
+  (function () {
+      function switchTab() {
+          if (!location.hash) {
+            return;
+          }
+
+          const id = '#' + CSS.escape(location.hash.substring(1));
+          const $tabMenu = document.querySelector(`.tabs a[href="${id}"]`);
+          if (!$tabMenu) {
+            return;
+          }
+
+          const $tabMenuContainer = $tabMenu.parentElement.parentElement;
+          Array.from($tabMenuContainer.children).forEach($menu => $menu.classList.remove('is-active'));
+          Array.from($tabMenuContainer.querySelectorAll('a'))
+              .map($menu => document.getElementById($menu.getAttribute("href").substring(1)))
+              .forEach($content => $content.classList.add('is-hidden'));
+
+          if ($tabMenu) {
+              $tabMenu.parentElement.classList.add('is-active');
+          }
+          const $activeTab = document.querySelector(id);
+          if ($activeTab) {
+              $activeTab.classList.remove('is-hidden');
+          }
+      }
+      switchTab();
+      window.addEventListener('hashchange', switchTab, false);
+  })();
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"></head><body class="is-3-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="https://s2.loli.net/2022/04/18/JlfLcsOwU8myTbB.jpg" alt="冷冷" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">主页</a><a class="navbar-item" href="/archives">归档</a><a class="navbar-item" href="/categories">分类</a><a class="navbar-item" href="/tags">标签</a><a class="navbar-item" href="/about">关于我</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Discuss on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus/discussions"><i class="fas fa-comments"></i></a><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a><a class="navbar-item is-hidden-tablet catalogue" title="目录" href="javascript:;"><i class="fas fa-list-ul"></i></a><a class="navbar-item search" title="搜索" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-6-widescreen"><div class="card"><div class="card-image"><span class="image is-7by3"><img class="fill" src="/./img/%E5%89%8D%E7%AB%AF/css.png" alt="CSS 基本语法"></span></div><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2019-05-09T13:10:43.000Z" title="2019/5/9 21:10:43">2019-05-09</time>发表</span><span class="level-item"><a class="link-muted" href="/categories/CSS/">CSS</a></span><span class="level-item">1 小时读完 (大约11992个字)</span></div></div><h1 class="title is-3 is-size-4-mobile">CSS 基本语法</h1><div class="content"><h1 id="HTML-中引入-CSS-的方式"><a href="#HTML-中引入-CSS-的方式" class="headerlink" title="HTML 中引入 CSS 的方式"></a>HTML 中引入 CSS 的方式</h1><p>有 4 种方式可以在 HTML 中引入 CSS。其中有 2 种方式是在 HTML 文件中直接添加 CSS 代码，另外两种是引入 外部 CSS 文件。下面我们就来看看这些方式和它们的优缺点。</p>
+<span id="more"></span>
+
+<h2 id="内联方式"><a href="#内联方式" class="headerlink" title="内联方式"></a>内联方式</h2><p>内联方式指的是直接在 HTML 标签中的 <strong>style 属</strong>性中添加 CSS。</p>
+<p>示例：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="selector-tag">div</span> style=&quot;<span class="attribute">background</span>: red<span class="string">&quot;&gt;&lt;/div&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>这通常是个很糟糕的书写方式，它只能改变当前标签的样式，如果想要多个<code>&lt;div&gt;</code> 拥有相同的样式，你不得不重复地为每个 <code>&lt;div&gt;</code> 添加相同的样式，如果想要修改一种样式，又不得不修改所有的 style 中的代码。很显然，内联方式引入 CSS 代码会导致 HTML 代码变得冗长，且使得网页难以维护。</p>
+<h2 id="嵌入方式"><a href="#嵌入方式" class="headerlink" title="嵌入方式"></a>嵌入方式</h2><p>嵌入方式指的是在 HTML 头部中的 <code>&lt;style&gt;</code> 标签下书写 CSS 代码。</p>
+<p>示例：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;head&gt;     </span><br><span class="line">    &lt;style&gt;<span class="selector-class">.content</span> &#123; <span class="attribute">background</span>: red; &#125; &lt;/style&gt; </span><br><span class="line">&lt;/head&gt;</span><br></pre></td></tr></table></figure>
+
+<p>嵌入方式的 CSS 只对当前的网页有效。因为 CSS 代码是在 HTML 文件中，所以会使得代码比较集中，当我们写模板网页时这通常比较有利。因为查看模板代码的人可以一目了然地查看 HTML 结构和 CSS 样式。因为嵌入的 CSS 只对当前页面有效，所以当多个页面需要引入相同的 CSS 代码时，这样写会导致代码冗余，也不利于维护。</p>
+<h2 id="链接方式"><a href="#链接方式" class="headerlink" title="链接方式"></a>链接方式</h2><p>链接方式指的是使用 HTML 头部的 <code>&lt;head&gt;</code> 标签引入外部的 CSS 文件。</p>
+<p>示例：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;head&gt;     </span><br><span class="line">  &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;style<span class="selector-class">.css</span>&quot;&gt; </span><br><span class="line">&lt;/head&gt;</span><br></pre></td></tr></table></figure>
+
+<p>这是最常见的也是最推荐的引入 CSS 的方式。使用这种方式，所有的 CSS 代码只存在于单独的 CSS 文件中，所以具有良好的可维护性。并且所有的 CSS 代码只存在于 CSS 文件中，CSS 文件会在第一次加载时引入，以后切换页面时只需加载 HTML 文件即可。</p>
+<h2 id="导入方式"><a href="#导入方式" class="headerlink" title="导入方式"></a>导入方式</h2><p>导入方式指的是使用 CSS 规则引入外部 CSS 文件。</p>
+<p>示例：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;style&gt;     </span><br><span class="line">  <span class="keyword">@import</span> url(style.css);</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="比较链接方式和导入方式"><a href="#比较链接方式和导入方式" class="headerlink" title="比较链接方式和导入方式"></a>比较链接方式和导入方式</h2><p>链接方式（下面用 link 代替）和导入方式（下面用 <strong>@import</strong> 代替）都是引入外部的 CSS 文件的方式，下面我们来比较这两种方式，并且说明为什么不推荐使用 <strong>@import</strong>。</p>
+<ul>
+<li>link 属于 HTML，通过 <code>&lt;link&gt;</code>标签中的 href 属性来引入外部文件，而 <strong>@import</strong> 属于 CSS，所以导入语句应写在 CSS 中，要注意的是导入语句应写在样式表的开头，否则无法正确导入外部文件；</li>
+<li><strong>@import</strong> 是 CSS2.1 才出现的概念，所以如果浏览器版本较低，无法正确导入外部样式文件；</li>
+<li>当 HTML 文件被加载时，link 引用的文件会同时被加载，而 <strong>@import</strong> 引用的文件则会等页面全部下载完毕再被加载；</li>
+<li><strong>小结</strong>：我们应尽量使用<code>&lt;link&gt;</code> 标签导入外部 CSS 文件，避免或者少用使用其他三种方式。</li>
+</ul>
+<h1 id="规则"><a href="#规则" class="headerlink" title="@ 规则"></a>@ 规则</h1><p>CSS 的 @rules（读作“at-rules”）是一些特殊的规则，提供了关于 CSS 应该执行什么或如何表现的指令。有些@规则很简单，只有一个关键词和一个值。例如，@import 将一个样式表导入另一个 CSS 样式表：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@import</span> <span class="string">&quot;styles2.css&quot;</span>;</span><br></pre></td></tr></table></figure>
+
+<p>一个常见的@规则是 @media，它被用来创建媒体查询。媒体查询使用条件逻辑来应用 CSS 样式。</p>
+<p>在下面的例子中，样式表为 <code>&lt;body&gt;</code> 元素定义了一个默认的粉红色背景。然而，如果浏览器的视口宽于 30em，接下来的媒体查询则定义了蓝色背景。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">body</span> &#123;</span><br><span class="line">  <span class="attribute">background-color</span>: pink;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@media</span> (<span class="attribute">min-width</span>: <span class="number">30em</span>) &#123;</span><br><span class="line">  <span class="selector-tag">body</span> &#123;</span><br><span class="line">    <span class="attribute">background-color</span>: blue;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="层叠、优先级和继承"><a href="#层叠、优先级和继承" class="headerlink" title="层叠、优先级和继承"></a>层叠、优先级和继承</h1><p>CSS 语言有一些规则来控制在发生冲突的情况下哪个选择器更强大。这些规则被称为<strong>层叠</strong>（cascade）和<strong>优先级</strong>（specificity）。也有<strong>继承</strong>的概念，也就是在默认情况下，一些 css 属性继承当前元素的父元素上设置的值，有些则不继承。这也可能导致一些和期望不同的结果。</p>
+<h2 id="层叠"><a href="#层叠" class="headerlink" title="层叠"></a>层叠</h2><p>样式表<strong>层叠</strong>——简单的说，就是 CSS 规则的<strong>顺序</strong>很重要；当应用两条<strong>同级别</strong>的规则到一个元素的时候，写在<strong>后面的</strong>就是<strong>实际使用的规则</strong>。</p>
+<ul>
+<li>层叠：后面的样式会替换样式表中较早出现的冲突样式。</li>
+</ul>
+<p><strong>有三个因素需要考虑，根据重要性排序如下，后面的更重要：</strong></p>
+<ul>
+<li><p><strong>资源顺序</strong></p>
+</li>
+<li><ul>
+<li>如果你有超过一条规则，而且都是<strong>相同的权重</strong>，那么<strong>最后面的规则会应用</strong>。可以理解为后面的规则覆盖前面的规则，直到<strong>最后一个</strong>开始设置样式。<strong>资源顺序</strong>仅在规则的<strong>优先级相同时</strong>才体现出来。</li>
+</ul>
+</li>
+<li><p><strong>优先级</strong></p>
+</li>
+<li><ul>
+<li>在一些情况下，有些规则在最后出现，但是却应用了前面的具有冲突的规则。这是因为前面的有更高的<strong>优先级</strong>——它范围更小，因此浏览器就把它选择为元素的样式。</li>
+<li>类选择器的权重大于元素选择器，因此类上定义的属性将覆盖应用于元素上的属性。</li>
+<li>一种常见的做法是给基本元素定义通用样式，然后给不同的元素创建对应的类。</li>
+<li>本质上，不同类型的选择器有不同的分数值，把这些分数相加就得到特定选择器的权重，然后就可以进行匹配。一个选择器的优先级可以说是由三个不同的值（或分量）相加，可以认为是百（ID）十（类）个（元素）——三位数的三个位数：</li>
+</ul>
+</li>
+<li><ul>
+<li><ul>
+<li><strong>ID</strong>：选择器中包含 ID 选择器则<strong>百位</strong>得一分。</li>
+<li><strong>类</strong>：选择器中包含类选择器、属性选择器或者伪类则<strong>十位</strong>得一分。</li>
+<li><strong>元素</strong>：选择器中包含元素、伪元素选择器则<strong>个位</strong>得一分。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><img src="/%5Cimages%5C%E5%89%8D%E7%AB%AF%5C%E5%B1%82%E5%8F%A0.png"></p>
+<table>
+<thead>
+<tr>
+<th>选择器</th>
+<th>ID</th>
+<th>类</th>
+<th>元素</th>
+<th>优先级</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>h1</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0-0-1</td>
+</tr>
+<tr>
+<td>h1 + p::first-letter</td>
+<td>0</td>
+<td>0</td>
+<td>3</td>
+<td>0-0-3</td>
+</tr>
+<tr>
+<td>li &gt; a[href*&#x3D;”en-US”] &gt; .inline-warning</td>
+<td>0</td>
+<td>2</td>
+<td>2</td>
+<td>0-2-2</td>
+</tr>
+<tr>
+<td>#identifier</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>1-0-0</td>
+</tr>
+<tr>
+<td>button:not(#mainBtn, .cta)</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>1-0-1</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p><strong>备注：</strong> 通用选择器（*）、组合符（+、&gt;、~、’ ‘）和调整优先级的选择器（:where()）不会影响优先级。</p>
+</blockquote>
+<ul>
+<li><p><strong>重要程度</strong></p>
+</li>
+<li><ul>
+<li><strong>内联样式</strong>，即<strong>style</strong>属性内的样式声明，优先于所有普通的样式，无论其优先级如何。这样的声明没有选择器，但它们的优先级可以理解为 1-0-0-0；即无论选择器中有多少个 ID，它总是比其他任何优先级的权重都要高。</li>
+<li><strong>!important</strong>，有一个特殊的 CSS 可以用来覆盖所有上面所有优先级计算，不过需要很小心的使用。用于修改特定属性的值，能够覆盖普通规则的层叠。</li>
+</ul>
+</li>
+<li><ul>
+<li><ul>
+<li>了解 !important 是为了在阅读别人代码的时候知道有什么作用。<strong>但是，强烈建议除了非常情况不要使用它。</strong>!important 改变了层叠的常规工作方式，它会使调试 CSS 问题非常困难，特别是在大型样式表中。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="优先级"><a href="#优先级" class="headerlink" title="优先级"></a>优先级</h2><p>浏览器是根据<strong>优先级</strong>来决定当<strong>多个规则有不同选择器</strong>对应<strong>相同的元素</strong>的时候需要使用哪个规则。它基本上是一个衡量选择器具体选择哪些区域的尺度：</p>
+<ul>
+<li>一个元素选择器不是很具体，则会选择页面上该类型的所有元素，所以它的优先级就会低一些。</li>
+<li>一个类选择器稍微具体点，则会选择该页面中有特定 class 属性值的元素，所以它的优先级就要高一点。</li>
+<li>优先级：类选择器&gt;元素选择器</li>
+</ul>
+<h2 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h2><p>继承也需要在上下文中去理解——一些设置在父元素上的 CSS 属性是可以被子元素继承的，有些则不能。</p>
+<ul>
+<li><p>像 width、margin、padding 和 border 不会被继承。</p>
+</li>
+<li><p>CSS 为控制继承提供了五个特殊的通用属性值。</p>
+</li>
+<li><ul>
+<li>inherit：设置该属性会使子元素属性<strong>和父元素相同</strong>。实际上，就是“开启继承”。</li>
+<li>initial：将应用于选定<strong>元素的属性值</strong>设置为该属性的<strong>初始值</strong>。</li>
+<li>unset：将属性重置为<strong>自然值</strong>，也就是如果属性是自然继承那么就是inherit，否则和 initial 一样。</li>
+<li>revert：将应用于选定元素的属性值重置为浏览器的默认样式，而不是应用于该属性的默认值。在许多情况下，此值的作用类似于 unset。</li>
+<li>revert-layer：将应用于选定元素的属性值重置为在上一个层叠层中建立的值。</li>
+<li>CSS 的简写属性 <strong>all</strong> 可以用于同时将这些继承值中的一个应用于（几乎）所有属性。它的值可以是其中任意一个（inherit、initial、unset 或 revert）。这是一种撤销对样式所做更改的简便方法，以便回到之前已知的<strong>起点</strong>。</li>
+</ul>
+</li>
+</ul>
+<h1 id="层叠层"><a href="#层叠层" class="headerlink" title="层叠层"></a>层叠层</h1><p>使用来自多个源的 CSS，或当存在冲突的 CSS 选择器和竞争优先级时，又或者当你考虑使用 !important(en-US) 时，层叠层最为相关。</p>
+<p>有三种层叠来源类型：用户代理样式表、用户样式表和作者样式表。“用户代理”指的是浏览器。“用户”指的是是网站访问者。“作者”指的是你，开发者。</p>
+<h2 id="层叠层的优先权顺序"><a href="#层叠层的优先权顺序" class="headerlink" title="层叠层的优先权顺序"></a>层叠层的优先权顺序</h2><p>类似于我们有六个基于来源和重要性的优先权级别，层叠层使我们能够在这些来源中创建子来源级别的优先权。</p>
+<p>在六个来源中的每一个，都可以有多个层叠层。<strong>层创建的顺序</strong>非常重要。层创建的顺序确定了同一来源内层的优先权顺序。</p>
+<p>在<strong>普通来源</strong>中，层按照创建的顺序排序。优先权顺序是从首个创建的层到最后一个层，然后是未分层的普通样式。</p>
+<p>对于<strong>重要样式</strong>，这个顺序是<strong>相反</strong>的。所有<strong>未分层</strong>的重要样式会层叠在一起，形成一个隐式层，优先权高于所有非过渡的普通样式。未分层的重要样式的优先权<strong>低于</strong>任何重要分层样式。在<strong>同一来源</strong>内，先前声明的层中的重要样式<strong>优先于</strong>后续声明的层中的重要样式。</p>
+<h2 id="层叠层可以解决的问题"><a href="#层叠层可以解决的问题" class="headerlink" title="层叠层可以解决的问题"></a>层叠层可以解决的问题</h2><p>大型代码库可能会有来自多个团队、组件库、框架和第三方的样式。无论包含了多少样式表，所有这些样式都会层叠在一个单一的来源中：<em>作者</em>样式表。</p>
+<p>将许多来源的样式层叠在一起，特别是来自不同团队的样式，可能会导致问题。优先级冲突可能会迅速升级。Web 开发人员可能通过添加 !important 标志来进行“快速修复”。虽然这可能看起来是一种简单的解决方案，但它通常只是将<strong>优先级战争</strong>从普通声明转移到重要声明。</p>
+<p>就像层叠来源在用户、用户代理和作者样式之间提供了力量平衡一样，层叠层提供了一种<strong>结构化</strong>的方式来组织和平衡单一来源内的关注点，就好像来源中的每个层都是一个<strong>子来源</strong>。可以为每个团队、组件和第三方<strong>创建一个层</strong>，其中的样式优先权基于层的顺序。</p>
+<p>层内的规则层叠在一起，而不会与层外的样式规则竞争。层叠层使得可以优先考虑整个样式表而不必担心这些子来源之间的优先级。层的优先权始终高于选择器的优先级。</p>
+<h2 id="嵌套层叠层可以解决的问题"><a href="#嵌套层叠层可以解决的问题" class="headerlink" title="嵌套层叠层可以解决的问题"></a>嵌套层叠层可以解决的问题</h2><p>层叠层允许创建嵌套层。每个层叠层可以包含嵌套层。</p>
+<p>嵌套层的能力非常适用于开发组件库、框架、第三方小部件和主题的任何人。</p>
+<h2 id="创建层叠层"><a href="#创建层叠层" class="headerlink" title="创建层叠层"></a>创建层叠层</h2><p>可以使用以下任一方法创建层叠层：</p>
+<ul>
+<li>使用 @layer 声明 at 规则，使用 @layer 后跟一个或多个层的名称来声明层。这将创建一个没有分配任何样式的具名层。</li>
+<li>使用 @layer 块 at 规则，在块中的所有样式都将添加到一个命名或未命名的层中。</li>
+<li>使用具有 layer 关键字或 layer() 函数的 @import 规则，将导入文件的内容分配到该层中。</li>
+</ul>
+<h2 id="用于具名层的-layer-声明-at-规则"><a href="#用于具名层的-layer-声明-at-规则" class="headerlink" title="用于具名层的 @layer 声明 at 规则"></a>用于具名层的 @layer 声明 at 规则</h2><p>使用 @layer 后跟一个或多个层的名称而不分配任何样式是定义<strong>层顺序</strong>的一种方式。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@layer</span> theme，layout，utilities;</span><br></pre></td></tr></table></figure>
+
+<p>如果上述声明是站点 CSS 的第一行，那么层的顺序将是 theme、layout 和 utilities。如果在上述语句之前已经创建了一些层，只要同名的层还<strong>不存在</strong>，这三个层就会被创建并添加到现有层列表的<strong>末尾</strong>。但是，如果同名的层<strong>已经存在</strong>，那么上述语句<strong>只会创建两个新层</strong>。例如，如果 layout 已经存在，只会创建 theme 和 utilities, 但在这种情况下的层顺序将是 layout、theme 和 utilities。</p>
+<p>优先级从前到后越来越高，utilities优先级最高。</p>
+<h2 id="用于具名层和匿名层的-layer-块-at-规则"><a href="#用于具名层和匿名层的-layer-块-at-规则" class="headerlink" title="用于具名层和匿名层的 @layer 块 at 规则"></a>用于具名层和匿名层的 @layer 块 at 规则</h2><p>如果在使用 @layer 创建块样式时没有指定名称，则该规则中的样式将被添加到一个新的匿名层中。</p>
+<p>示例中，使用了四个块和一个内联的 @layer at 规则：</p>
+<ol>
+<li>创建一个命名的 layout 层</li>
+<li>创建一个未命名的匿名层</li>
+<li>声明三个层的列表并只创建两个新层 theme 和 utilities，因为 layout 已经存在</li>
+<li>向已经存在的 layout 层添加额外的样式</li>
+<li>创建第二个未命名的匿名层</li>
+</ol>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 文件：layers1.css */</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/* 未分层的样式 */</span></span><br><span class="line"><span class="selector-tag">body</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#333</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 创建第一个层：`layout` */</span></span><br><span class="line"><span class="keyword">@layer</span> layout &#123;</span><br><span class="line">  <span class="selector-tag">main</span> &#123;</span><br><span class="line">    <span class="attribute">display</span>: grid;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 创建第二个层：一个未命名的匿名层 */</span></span><br><span class="line"><span class="keyword">@layer</span> &#123;</span><br><span class="line">  <span class="selector-tag">body</span> &#123;</span><br><span class="line">    <span class="attribute">margin</span>: <span class="number">0</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 创建第三和第四个层：`theme` 和 `utilities` */</span></span><br><span class="line"><span class="keyword">@layer</span> theme，layout，utilities；</span><br><span class="line">/* 向已经存在的 `layout` 层添加样式 */</span><br><span class="line">@layer layout &#123;</span><br><span class="line">  <span class="selector-tag">main</span> &#123;</span><br><span class="line">    <span class="attribute">color</span>: <span class="number">#000</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 创建第五个层：一个未命名的匿名层 */</span></span><br><span class="line"><span class="keyword">@layer</span> &#123;</span><br><span class="line">  <span class="selector-tag">body</span> &#123;</span><br><span class="line">    <span class="attribute">margin</span>: <span class="number">1vw</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p> 在上面的 CSS 中，我们创建了五个层：layout、<code>&lt;anonymous(01)&gt;</code>、theme、utilities 和 <code>&lt;anonymous(02)&gt;</code>——按这个顺序——第六个隐含的未分层样式层包含在 body 样式块中。层的顺序是层的创建顺序，前面的优先级<strong>低于</strong>后面的优先级。<strong>未分层样式</strong>的隐含层总是<strong>在最后</strong>的，优先级<strong>最高</strong>。一旦<strong>创建</strong>了层之后就<strong>无法改变层的顺序</strong>。</p>
+<h2 id="层创建和媒体查询"><a href="#层创建和媒体查询" class="headerlink" title="层创建和媒体查询"></a>层创建和媒体查询</h2><p>如果你使用<strong>媒体<strong><strong>或</strong></strong>特性</strong>查询来定义层，且媒体不匹配或特征不被支持，则不会创建该层。</p>
+<p>下面的示例展示了改变设备或浏览器的尺寸可能会改变层的顺序：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@media</span> (<span class="attribute">min-width</span>: <span class="number">50em</span>) &#123;</span><br><span class="line">  <span class="keyword">@layer</span> site;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@layer</span> page &#123;</span><br><span class="line">  <span class="selector-tag">h1</span> &#123;</span><br><span class="line">    <span class="attribute">text-decoration</span>: overline;</span><br><span class="line">    <span class="attribute">color</span>: red;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@layer</span> site &#123;</span><br><span class="line">  <span class="selector-tag">h1</span> &#123;</span><br><span class="line">    <span class="attribute">text-decoration</span>: underline;</span><br><span class="line">    <span class="attribute">color</span>: green;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在<strong>宽屏</strong>上，site 层在第一行被声明，这意味着 site 的优先权<strong>低于</strong> <strong>page</strong>。否则在<strong>窄屏</strong>上，site 的优先权<strong>高于</strong> <strong>page</strong>，因为它在后面被声明。</p>
+<h2 id="使用-import-将样式表导入具名层和匿名层"><a href="#使用-import-将样式表导入具名层和匿名层" class="headerlink" title="使用 @import 将样式表导入具名层和匿名层"></a>使用 @import 将样式表导入具名层和匿名层</h2><p>@import 规则允许用户直接从其他样式表导入样式规则到 CSS 文件或<code>&lt;style&gt;</code> 元素中。</p>
+<p>可以将样式表导入具名层、嵌套具名层或匿名层。</p>
+<p>以下层分别将样式表导入 components 层、components 层中的嵌套 dialog 层和一个未命名层：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@import</span> url(<span class="string">&quot;components-lib.css&quot;</span>) layer(components);</span><br><span class="line"><span class="keyword">@import</span> url(<span class="string">&quot;dialog.css&quot;</span>) layer(components.dialog);</span><br><span class="line"><span class="keyword">@import</span> url(<span class="string">&quot;marketing.css&quot;</span>) layer();</span><br></pre></td></tr></table></figure>
+
+<p>你可以使用<strong>媒体查询</strong>和<strong>特性查询</strong>根据特定条件导入样式并创建层。</p>
+<p>以下将样式表导入到 international 层，但前提是浏览器支持 display: ruby，而且被导入的文件取决于屏幕的宽度。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@import</span> url(<span class="string">&quot;ruby-narrow.css&quot;</span>) layer(international) supports(<span class="attribute">display</span>: ruby) <span class="keyword">and</span></span><br><span class="line">  (<span class="attribute">width</span> &lt; <span class="number">32rem</span>);</span><br><span class="line"><span class="keyword">@import</span> url(<span class="string">&quot;ruby-wide.css&quot;</span>) layer(international) supports(<span class="attribute">display</span>: ruby) <span class="keyword">and</span></span><br><span class="line">  (<span class="attribute">width</span> &gt;= <span class="number">32rem</span>);</span><br></pre></td></tr></table></figure>
+
+<h2 id="嵌套层的概述"><a href="#嵌套层的概述" class="headerlink" title="嵌套层的概述"></a>嵌套层的概述</h2><p>嵌套层是具名层或匿名层中的子层。每个层叠层（即使是匿名的）都可以包含嵌套层。导入到另一个层中的层会成为该层中的嵌套层。</p>
+<h3 id="嵌套层的优点"><a href="#嵌套层的优点" class="headerlink" title="嵌套层的优点"></a>嵌套层的优点</h3><p>嵌套层的能力使团队可以创建层叠层，而不用担心其他团队会将它们导入到一个层中。同样，嵌套使你可以将第三方样式表导入到一个层中，而<strong>不用担心该样式表本身是否具有层</strong>。因为层可以嵌套，所以你<strong>不必担心外部和内部样式表之间会有冲突的层名称</strong>。</p>
+<h3 id="创建嵌套层叠层"><a href="#创建嵌套层叠层" class="headerlink" title="创建嵌套层叠层"></a>创建嵌套层叠层</h3><p>嵌套层可以使用与常规层相同的方法创建。例如，可以使用<strong>点表示法</strong>，在 @layer 规则后跟一个或多个层名称来创建。<strong>多个点和层名称表示多重嵌套</strong>。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@import</span> url(<span class="string">&quot;components-lib.css&quot;</span>) layer(components);</span><br><span class="line"><span class="keyword">@import</span> url(<span class="string">&quot;narrowtheme.css&quot;</span>) layer(components.narrow);</span><br></pre></td></tr></table></figure>
+
+<p>在第一行中，我们将 components-lib.css 导入 components 层。如果该文件<strong>包含</strong>任何层，无论命名与否，这些层都会成为 components 层中的嵌套层。</p>
+<p>第二行将 narrowtheme.css 导入 narrow 层，narrow 是 components 的子层。嵌套的 components.narrow 会作为 components 层中的<strong>最后</strong>一个层创建，除非 components-lib.css 已经包含一个 narrow 层，在这种情况下，narrowtheme.css 的内容会被附加到 components.narrow 嵌套层。可以<strong>使用 components.</strong><code>&lt;layerName&gt;</code> 模式向 components 层<strong>添加更多命名嵌套层</strong>。如前所述，可以创建未命名层，但随后无法访问它们。</p>
+<h3 id="根据层的顺序确定优先权"><a href="#根据层的顺序确定优先权" class="headerlink" title="根据层的顺序确定优先权"></a>根据层的顺序确定优先权</h3><p>层的顺序决定了它们的优先权顺序。因此，层的顺序非常重要。与层叠根据来源和重要性进行排序的方式相同，层叠也会根据来源层和重要性对每个 CSS 声明进行排序。</p>
+<h3 id="常规层叠层的优先权顺序"><a href="#常规层叠层的优先权顺序" class="headerlink" title="常规层叠层的优先权顺序"></a>常规层叠层的优先权顺序</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@import</span> url(A.css) layer(firstLayer);</span><br><span class="line"><span class="keyword">@import</span> url(B.css) layer(secondLayer);</span><br><span class="line"><span class="keyword">@import</span> url(C.css);</span><br></pre></td></tr></table></figure>
+
+<p>上述代码创建了两个具名层和一个未命名层。假设这三个文件（A.css、 B.css 和 C.css）本身不包含任何额外的层。以下列表显示了在这些文件内外声明的样式将以从最低（1）优先权到最高（10）优先权进行排序。</p>
+<ol>
+<li>firstLayer 普通样式（A.css）</li>
+<li>secondLayer 普通样式（B.css）</li>
+<li>未分层普通样式（C.css）</li>
+<li>内联普通样式</li>
+<li>动画样式</li>
+<li>未分层重要样式（C.css）</li>
+<li>secondLayer 重要样式（B.css）</li>
+<li>firstLayer 重要样式（A.css）</li>
+<li>内联重要样式</li>
+<li>过渡样式</li>
+</ol>
+<p>在层中声明的普通样式具有最低的优先权，并按照创建层的顺序进行排序。在最先创建的层中声明的普通样式具有最低的优先权，而在<strong>最后</strong>创建的层中声明的普通样式在所有层中具有<strong>最高的优先权</strong>。换句话说，如果存在冲突的话，在 firstLayer 中声明的普通样式将被列表中任何后续的样式覆盖。</p>
+<p>接下来是在层外声明的任何样式。C.css 中的样式没有导入到层中，并将覆盖任何来自 firstLayer 和 secondLayer 的冲突样式。在<strong>层外</strong>声明的普通样式总是<strong>比层内</strong>的普通样式具有更<strong>高</strong>的优先权。</p>
+<p><strong>过渡样式</strong>具有<strong>最高</strong>的优先权。当正在过渡普通属性值时，它优先于所有其他属性值声明，甚至是内联重要样式；但是只在过渡时。</p>
+<p>总结：</p>
+<ul>
+<li>层的优先权顺序是创建层的顺序。</li>
+<li>一旦创建，就无法更改层顺序。</li>
+<li>普通样式的层优先权是创建层的顺序。</li>
+<li>未分层普通样式优先于有层普通样式。</li>
+<li>重要样式的层优先权被反转，早期创建的层具有优先权。</li>
+<li>所有有层的重要样式都优先于未分层的重要（和普通）样式。</li>
+<li>普通内联样式优先于所有普通样式，无论是否分层。</li>
+<li>重要内联样式优先于所有其他样式，正在过渡的样式除外。</li>
+<li>作者样式无法覆盖重要内联样式（过渡除外，但这是临时的）。</li>
+</ul>
+<h3 id="嵌套层叠层的优先权顺序"><a href="#嵌套层叠层的优先权顺序" class="headerlink" title="嵌套层叠层的优先权顺序"></a>嵌套层叠层的优先权顺序</h3><p>嵌套层的层叠优先权顺序与常规层类似，但包含在层内。优先权顺序基于嵌套层创建的顺序。层中的<strong>非嵌套</strong>样式<strong>优先于嵌套</strong>的普通样式，对于<strong>重要样式则相反</strong>。嵌套层之间的优先级权重并不重要，但它在<strong>嵌套层内</strong>的冲突样式中确实很<strong>重要</strong>。</p>
+<p>下面创建并向 components 层和 components.narrow 嵌套层添加样式，然后创建并追加样式到新的 components.wide 层：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@import</span> url(<span class="string">&quot;components-lib.css&quot;</span>) layer(components);</span><br><span class="line"><span class="keyword">@import</span> url(<span class="string">&quot;narrowtheme.css&quot;</span>) layer(components.narrow);</span><br><span class="line"></span><br><span class="line"><span class="keyword">@layer</span> components &#123;</span><br><span class="line">  <span class="selector-pseudo">:root</span> &#123;</span><br><span class="line">    <span class="attr">--theme</span>: red;</span><br><span class="line">    <span class="attribute">font-family</span>: serif <span class="meta">!important</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">@layer</span> components.narrow &#123;</span><br><span class="line">  <span class="selector-pseudo">:root</span> &#123;</span><br><span class="line">    <span class="attr">--theme</span>: blue;</span><br><span class="line">    <span class="attribute">font-family</span>: sans-serif <span class="meta">!important</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">@layer</span> components.wide &#123;</span><br><span class="line">  <span class="selector-pseudo">:root</span> &#123;</span><br><span class="line">    <span class="attr">--theme</span>: purple;</span><br><span class="line">    <span class="attribute">font-family</span>: cursive <span class="meta">!important</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>因为<strong>未分层普通样式优先于分层普通样式</strong>，并且在层内，<strong>非嵌套样式优先于普通嵌套样式</strong>，所以 red 优先于其他 theme 颜色。</p>
+<p>对于<strong>重要样式</strong>，<strong>分层</strong>样式<strong>优先</strong>于<strong>未分层</strong>样式，并且<strong>早期</strong>声明的层中的重要样式<strong>优先</strong>于<strong>后来</strong>声明的层。在这个例子中，嵌套层的创建顺序是 components.narrow，然后是 components.wide，所以 components.narrow 中的重要样式优先于 components.wide 中的重要样式，这意味着 sans-serif 获胜。</p>
+<h1 id="盒模型"><a href="#盒模型" class="headerlink" title="盒模型"></a>盒模型</h1><h2 id="块级盒子（Block-box）和-内联盒子（Inline-box）"><a href="#块级盒子（Block-box）和-内联盒子（Inline-box）" class="headerlink" title="块级盒子（Block box）和 内联盒子（Inline box）"></a>块级盒子（Block box）和 内联盒子（Inline box）</h2><p>在 CSS 中我们广泛地使用两种“盒子” —— <strong>块级盒子</strong> (<strong>block box</strong>) 和 <strong>内联盒子</strong> (<strong>inline box</strong>)。这两种盒子会在<strong>页面流</strong>（page flow）和元素之间的关系方面表现出不同的行为：</p>
+<p>一个被定义成<strong>块级</strong>的（block）盒子会表现出以下行为：</p>
+<ul>
+<li>盒子会在内联的方向上扩展并占据父容器在该方向上的所有可用空间，在绝大数情况下意味着盒子会和父容器一样宽</li>
+<li>每个盒子都会<strong>换行</strong></li>
+<li>width 和 height 属性可以<strong>发挥作用</strong></li>
+<li>内边距（padding）, 外边距（margin）和 边框（border）<strong>会</strong>将其他元素从当前盒子周围“<strong>推开</strong>”</li>
+</ul>
+<p>除非特殊指定，诸如标题 (<code>&lt;h1&gt;</code>等) 和段落 (<code>&lt;p&gt;</code>) 默认情况下都是块级的盒子。</p>
+<p>如果一个盒子对外显示为 <strong>inline</strong>，那么他的行为如下：</p>
+<ul>
+<li>盒子<strong>不会</strong>产生<strong>换行</strong>。</li>
+<li>width 和 height 属性将<strong>不起作用</strong>。</li>
+<li><strong>垂直方向</strong>的内边距、外边距以及边框会被应用但是<strong>不会</strong>把其他处于 inline 状态的盒子<strong>推开</strong>。</li>
+<li><strong>水平方向</strong>的内边距、外边距以及边框会被应用且<strong>会</strong>把其他处于 inline 状态的盒子<strong>推开</strong>。</li>
+</ul>
+<blockquote>
+<p>用做链接的 <code>&lt;a&gt;</code> 元素、<code>&lt;span&gt;</code>、 <code>&lt;em&gt;</code> 以及 <code>&lt;strong&gt;</code> 都是默认处于 inline 状态的。</p>
+</blockquote>
+<p>通过对盒子<strong>display</strong> <strong>属性</strong>的设置，比如 inline 或者 block ，来控制盒子的外部显示类型。</p>
+<h2 id="什么是-CSS-盒模型"><a href="#什么是-CSS-盒模型" class="headerlink" title="什么是 CSS 盒模型"></a>什么是 CSS 盒模型</h2><p>完整的 CSS 盒模型应用于<strong>块级盒子</strong>，内联盒子只使用盒模型中定义的部分内容。模型定义了盒的每个部分 —— <strong>margin, border, padding</strong>, and <strong>content</strong> —— 合在一起就可以创建我们在页面上看到的内容。为了增加一些额外的复杂性，有一个标准的和替代（IE）的盒模型。</p>
+<h3 id="盒模型的各个部分"><a href="#盒模型的各个部分" class="headerlink" title="盒模型的各个部分"></a>盒模型的各个部分</h3><p>CSS 中组成一个块级盒子需要：</p>
+<ul>
+<li><strong>Content box</strong>: 这个区域是用来显示<strong>内容</strong>，大小可以通过设置 width 和 height.</li>
+<li><strong>Padding box</strong>: 包围在<strong>内容区域外部</strong>的空白区域；大小通过 padding 相关属性设置。</li>
+<li><strong>Border box</strong>: 边框盒包裹内容和<strong>内边距</strong>。大小通过 border 相关属性设置。</li>
+<li><strong>Margin box</strong>: 这是最<strong>外面的区域</strong>，是盒子和其他元素之间的空白区域。大小通过 margin 相关属性设置。</li>
+</ul>
+<p><img src="/%5Cimages%5C%E5%89%8D%E7%AB%AF%5C%E7%9B%92%E6%A8%A1%E5%9E%8B.png"></p>
+<h3 id="标准盒模型"><a href="#标准盒模型" class="headerlink" title="标准盒模型"></a>标准盒模型</h3><p>在标准模型中，如果你给盒设置 width 和 height，实际设置的是 <em>content box</em>。padding 和 border 再加上设置的宽高一起决定整个盒子的大小。见下图。</p>
+<p>假设定义了 width, height, margin, border, and padding:</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">350px</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">150px</span>;</span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">25px</span>;</span><br><span class="line">  <span class="attribute">padding</span>: <span class="number">25px</span>;</span><br><span class="line">  <span class="attribute">border</span>: <span class="number">5px</span> solid black;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>如果使用标准模型，实际占用空间的宽高分别为：宽度 &#x3D; 410px (350 + 25 + 25 + 5 + 5)，高度 &#x3D; 210px (150 + 25 + 25 + 5 + 5)。</p>
+<p><img src="/%5Cimages%5C%E5%89%8D%E7%AB%AF%5C%E6%A0%87%E5%87%86%E7%9B%92%E6%A8%A1%E5%9E%8B.png"></p>
+<blockquote>
+<p>margin 不计入实际大小 —— 当然，它会影响盒子在页面所占空间，但是影响的是盒子外部空间。盒子的范围到边框为止 —— 不会延伸到 margin。</p>
+</blockquote>
+<h3 id="替代（IE）盒模型"><a href="#替代（IE）盒模型" class="headerlink" title="替代（IE）盒模型"></a>替代（IE）盒模型</h3><p>css 还有一个替代盒模型。使用这个模型，所有宽度都是可见宽度，所以内容宽度是该宽度减去边框和填充部分。使用上面相同的样式得到 (width &#x3D; 350px, height &#x3D; 150px).</p>
+<p><img src="/%5Cimages%5C%E5%89%8D%E7%AB%AF%5CIE%E7%9B%92%E6%A8%A1%E5%9E%8B.png"></p>
+<p><strong>默认浏览器会使用标准模型</strong>。如果需要<strong>使用替代模型</strong>，你可以通过为其<strong>设置</strong> <strong>box-sizing: border-box</strong> 来实现。这样就可以告诉浏览器使用 border-box 来定义区域，从而设定你想要的大小。</p>
+<h2 id="外边距折叠"><a href="#外边距折叠" class="headerlink" title="外边距折叠"></a>外边距折叠</h2><p>理解外边距的一个关键是外边距折叠的概念。如果你有两个外边距相接的元素，这些外边距将合并为一个外边距，即<strong>最大的单个外边距的大小</strong>。</p>
+<p>在下面的例子中，我们有两个段落。顶部段落的页 margin-bottom为 50px。第二段的margin-top 为 30px。因为外边距折叠的概念，所以框之间的<strong>实际外边距是 50px</strong>，而不是两个外边距的总和。</p>
+<h2 id="使用-display-inline-block"><a href="#使用-display-inline-block" class="headerlink" title="使用 display: inline-block"></a>使用 display: inline-block</h2><p>display 有一个特殊的值，它在<strong>内联和块之间提供了一个中间状态</strong>。这对于以下情况非常有用：你不希望一个项切换到新行，但希望它可以设定宽度和高度，并避免上面看到的重叠。</p>
+<p>一个元素使用 display: inline-block，实现我们需要的块级的部分效果：</p>
+<ul>
+<li>设置width 和height 属性会生效。</li>
+<li>padding, margin, 以及border 会推开其他元素。</li>
+</ul>
+<p>但是，它<strong>不会跳转到新行</strong>，如果显式添加 width 和 height 属性，它只会变得比其内容更大。</p>
+<p>当你想要通过添加内边距使链接具有更大的命中区域时，这是很有用的。<code>&lt;a&gt;</code> 是像 <code>&lt;span&gt;</code>一样的内联元素；你可以使用 display: inline-block 来设置内边距，让用户更容易点击链接。</p>
+<p>这种情况在导航栏中很常见。</p>
+<h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><h2 id="控制背景平铺行为"><a href="#控制背景平铺行为" class="headerlink" title="控制背景平铺行为"></a>控制背景平铺行为</h2><p>background-repeat 属性用于控制图像的平铺行为。可用的值是：</p>
+<ul>
+<li>no-repeat——阻止背景重复平铺。</li>
+<li>repeat-x——仅水平方向上重复平铺。</li>
+<li>repeat-y——仅垂直方向上重复平铺。</li>
+<li>repeat——默认值，在水平和垂直两个方向重复平铺。</li>
+</ul>
+<h2 id="调整背景图像的大小"><a href="#调整背景图像的大小" class="headerlink" title="调整背景图像的大小"></a>调整背景图像的大小</h2><p>使用 background-size 属性，它可以设置长度或百分比值，来调整图像的大小以适应背景。</p>
+<p>也可以使用关键字：</p>
+<ul>
+<li><strong>cover</strong>：浏览器将使图像足够大，使它完全覆盖了盒子区域，同时仍然保持其宽高比。在这种情况下，图像的部分区域可能会<strong>跳出盒子外</strong>。</li>
+<li><strong>contain</strong>：浏览器会将图像调整到适合框内的尺寸。在这种情况下，如果图像的长宽比与盒子的长宽比不同，你可能会在<strong>图像的两边或顶部和底部出现空隙</strong>。</li>
+</ul>
+<h2 id="背景图像定位"><a href="#背景图像定位" class="headerlink" title="背景图像定位"></a>背景图像定位</h2><p>background-position 属性允许你选择背景图片出现在它所应用的盒子上的位置。这使用了一个坐标系统，其中方框的左上角是 (0,0)，方框沿水平（x）和垂直（y）轴定位。</p>
+<blockquote>
+<p>默认的 background-position 值是 (0,0)。</p>
+</blockquote>
+<h2 id="渐变背景"><a href="#渐变背景" class="headerlink" title="渐变背景"></a>渐变背景</h2><p>当渐变用于背景时，也可以使用像图像一样的 background-image 属性设置。</p>
+<p><code>&lt;gradient&gt;</code> 数据类型是由下面列出的函数类型中的一个定义的。</p>
+<p><strong>线性渐变</strong></p>
+<p>线性渐变会在一个假想的直线上过渡颜色。线性渐变是由 linear-gradient() 函数产生的。</p>
+<p><strong>径向渐变</strong></p>
+<p>径向渐变从一个中间点（原点）开始过渡颜色。径向渐变是由 radial-gradient() 函数产生的。</p>
+<p><strong>重复渐变</strong></p>
+<p>重复渐变可根据需要复制渐变，以填充指定区域。重复渐变是使用 repeating-linear-gradient() 和 repeating-radial-gradient() 函数生成的。</p>
+<p><strong>锥形渐变</strong></p>
+<p>锥形渐变会沿着一个圆过渡颜色。锥形渐变是由 conic-gradient() 函数产生的。</p>
+<h2 id="多个背景图像"><a href="#多个背景图像" class="headerlink" title="多个背景图像"></a>多个背景图像</h2><p>也可以有多个背景图像——在单个属性值中指定多个 background-image 值，用<strong>逗号</strong>分隔每个值。</p>
+<p>当你这样做时，你可能会出现背景图片相互重叠的情况。背景将分层，<strong>最后列出的背景图片位于最下层</strong>，而之前的每张图片都堆在代码中紧随其后的那张图片之上。</p>
+<blockquote>
+<p>渐变可以与常规的背景图像很好地混合在一起。</p>
+</blockquote>
+<h2 id="背景附加"><a href="#背景附加" class="headerlink" title="背景附加"></a>背景附加</h2><p>为背景提供的另一个选项是指定内容滚动时的滚动方式。这是用 background-attachment 属性控制的，它可以取以下值：</p>
+<ul>
+<li>scroll：使元素的背景在页面滚动时滚动。如果滚动了元素内容，则<strong>背景不会移动</strong>。实际上，背景被固定在页面的相同位置，所以它会随着页面的滚动而滚动。</li>
+<li>fixed：使元素的背景固定在视口上，这样当<strong>页面或元素内容滚动时，它就不会滚动</strong>。它将始终保持在屏幕上相同的位置。</li>
+<li>local：将背景固定在它所设置的元素上，所以当你<strong>滚动该元素时，背景也随之滚动</strong>。</li>
+</ul>
+<h2 id="使用-background-简写属性"><a href="#使用-background-简写属性" class="headerlink" title="使用 background 简写属性"></a>使用 background 简写属性</h2><p>在简写背景图像属性时遵循，例如：</p>
+<ul>
+<li>background-color 只能在最后一个逗号之后指定。</li>
+<li>background-size 值只能立即包含在 background-position 之后，用“&#x2F;”字符分隔，例如：center&#x2F;80%。</li>
+</ul>
+<h1 id="处理不同方向的文本"><a href="#处理不同方向的文本" class="headerlink" title="处理不同方向的文本"></a>处理不同方向的文本</h1><p>使用writing-mode: vertical-rl对一个标题的显示进行设置。现在，标题文本是竖向的了。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">h1</span> &#123;</span><br><span class="line">  <span class="attribute">writing-mode</span>: vertical-rl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/%5Cimages%5C%E5%89%8D%E7%AB%AF%5C%E6%96%87%E6%9C%AC.png"></p>
+<p>writing-mode的三个值分别是：</p>
+<ul>
+<li>horizontal-tb: 块流向<strong>从上至下</strong>。对应的文本方向是横向的。</li>
+<li>vertical-rl: 块流向<strong>从右向左</strong>。对应的文本方向是纵向的。</li>
+<li>vertical-lr: 块流向<strong>从左向右</strong>。对应的文本方向是纵向的。</li>
+</ul>
+<h2 id="逻辑属性和逻辑值"><a href="#逻辑属性和逻辑值" class="headerlink" title="逻辑属性和逻辑值"></a>逻辑属性和逻辑值</h2><p>两个盒子——一个用horizontal-tb设定了书写模式，一个用vertical-rl设定了书写模式。我为这两个盒子分别设定了宽度（ width）。可以看到，当盒子处于纵向书写模式下时，宽度也发生了变化，从而导致文本超出了盒子的范围。</p>
+<p><img src="/%5Cimages%5C%E5%89%8D%E7%AB%AF%5C%E9%80%BB%E8%BE%91%E5%80%BC.png"></p>
+<p>当处于纵向书写模式之下时，我们希望盒子可以向横向模式下一样得到拓宽。</p>
+<p>为了更容易实现这样的转变，CSS 最近开发了一系列<strong>映射属性</strong>。这些属性用<strong>逻辑</strong>（<strong>logical</strong>）和<strong>相对变化</strong>（<strong>flow relative</strong>）代替了像宽width和高height一样的物理属性。</p>
+<p><strong>横向书写模式</strong>下，映射到<strong>width的属性</strong>被称作<strong>内联尺寸（<strong><strong>inline-size</strong></strong>）</strong>——内联维度的尺寸。而映射<strong>height的属性</strong>被称为<strong>块级尺寸（<strong><strong>block-size</strong></strong>）</strong>，这是块级维度的尺寸。</p>
+<h3 id="逻辑外边距、边框和内边距属性"><a href="#逻辑外边距、边框和内边距属性" class="headerlink" title="逻辑外边距、边框和内边距属性"></a><strong>逻辑外边距、边框和内边距属性</strong></h3><p>margin-top属性的映射是margin-block-start——总是指向块级维度开始处的边距。</p>
+<p>padding-left属性映射到 padding-inline-start，这是应用到内联开始方向（这是该书写模式文本开始的地方）上的内边距。</p>
+<p>border-bottom属性映射到的是border-block-end，也就是块级维度结尾处的边框。</p>
+<h3 id="逻辑值"><a href="#逻辑值" class="headerlink" title="逻辑值"></a>逻辑值</h3><p>有一些属性的取值是一些物理值（如top、right、bottom和left）。这些值同样拥有<strong>逻辑值映射（<strong><strong>block-start</strong></strong>、<strong><strong>inline-end</strong></strong>、<strong><strong>block-end</strong></strong>和<strong><strong>inline-start</strong></strong>）</strong></p>
+<h1 id="溢出的内容（BFC）"><a href="#溢出的内容（BFC）" class="headerlink" title="溢出的内容（BFC）"></a>溢出的内容（BFC）</h1><h2 id="什么是溢出？"><a href="#什么是溢出？" class="headerlink" title="什么是溢出？"></a>什么是溢出？</h2><p>CSS 中万物皆盒，因此我们可以通过给 width 和 height（或者 inline-size 和 block-size）赋值的方式来约束盒子的尺寸。溢出是在你往盒子里面塞太多东西的时候发生的，所以盒子里面的东西也不会老老实实待着。</p>
+<h2 id="CSS-尽力减少“数据损失”"><a href="#CSS-尽力减少“数据损失”" class="headerlink" title="CSS 尽力减少“数据损失”"></a>CSS 尽力减少“数据损失”</h2><p>只要有可能，CSS 就不会隐藏你的内容，隐藏引起的数据损失通常会造成困扰。在 CSS 的术语里面，这会导致一些内容消失，你的访客可能不会注意到这一点，如果消失的是表格上的提交按钮，没有人能填完这个表格，这是很麻烦的事情！所以 CSS 反而会把它以可见的形式溢出出去。这样做的结果就是，你会看到错误的 CSS 导致的一片混乱，或者最坏的情况也只是你的网站的访客会告诉你有些内容冒了出来，你的网站需要修缮。</p>
+<h2 id="overflow-属性"><a href="#overflow-属性" class="headerlink" title="overflow 属性"></a><strong>overflow 属性</strong></h2><p>overflow属性是你控制一个元素溢出的方式，它告诉浏览器你想怎样处理溢出。</p>
+<p>overflow 的默认值为 visible，这就是我们的内容溢出的时候，我们在默认情况下看到它们的原因。</p>
+<p>如果你想在内容溢出的时候把它<strong>裁剪掉</strong>，你可以在你的盒子上<strong>设置</strong> <strong>overflow: hidden</strong>。这就会像它表面上所显示的那样作用——隐藏掉溢出。这可能会很自然地让东西消失掉，所以你只应该在<strong>判断隐藏内容不会引起问题的时候</strong>这样做。</p>
+<p><img src="/%5Cimages%5C%E5%89%8D%E7%AB%AF%5Coverflow.png"></p>
+<p>在有内容溢出的时候<strong>加个滚动条</strong>？如果你用了 <strong>overflow: scroll</strong>，那么你的浏览器<strong>总会</strong>显示滚动条，即使没有足够多引起溢出的内容。你可能会需要这样的样式，它避免了滚动条在内容变化的时候出现和消失。</p>
+<p>想让滚动条在有比盒子所能装下<strong>更多的内容的时候才显示</strong>，那么使用 <strong>overflow: auto</strong>。</p>
+<blockquote>
+<p>如果你真的需要在小盒子里面和<strong>长英文词</strong>打交道，那么你可能要了解一下 <strong>word-break</strong> 或者 <strong>overflow-wrap</strong> 属性。</p>
+</blockquote>
+<h3 id="区别和选择"><a href="#区别和选择" class="headerlink" title="区别和选择:"></a>区别和选择:</h3><ul>
+<li><strong>overflow-wrap</strong> 主要关注的是如何处理<strong>整个单词的换行</strong>，而 <strong>word-break</strong> 更侧重于<strong>在何处断开换行</strong>，即使这涉及到<strong>单词内部</strong>的断行。</li>
+<li>在处理非拉丁字符（例如中文、日文）时，<strong>word-break: break-all;</strong> 会在字符之间插入换行，而 <strong>overflow-wrap: break-word;</strong> 不会。</li>
+</ul>
+<blockquote>
+<p>通常情况下，如果你更关注<strong>整个单词的处理</strong>，可以使用 <strong>overflow-wrap</strong>，而如果你更关注在非拉丁字符之间的处理，可以使用 <strong>word-break</strong>。在某些情况下，你可能需要<strong>同时使用这两个属性</strong>以达到期望的效果。</p>
+</blockquote>
+<h2 id="溢出建立了区块格式化上下文"><a href="#溢出建立了区块格式化上下文" class="headerlink" title="溢出建立了区块格式化上下文"></a>溢出建立了区块格式化上下文</h2><p>CSS 中有所谓<strong>区块格式化上下文</strong>（Block Formatting Context，<strong>BFC</strong>）的概念。在你使用诸如 scroll 或者 auto 的时候，你就建立了一个<strong>块级排版上下文</strong>。结果就是，你改变了 overflow 的值的话，对应的盒子就变成了更加小巧的状态。在容器之外的东西没法混进容器内，也没有东西可以突出盒子，进入周围的版面。激活了滚动动作，你的盒子里面所有的内容会被收纳，而且不会遮到页面上其他的物件，于是就产生了一个协调的滚动体验。</p>
+<h1 id="CSS-的值与单位"><a href="#CSS-的值与单位" class="headerlink" title="CSS 的值与单位"></a>CSS 的值与单位</h1><p>在 CSS 规范和 MDN 的属性页上，你将能够发现值的存在，因为它们将被尖括号包围，如 <code>&lt;color&gt;</code> 或 <code>&lt;length&gt;</code>。当你看到值 <code>&lt;color&gt;</code> 对特定属性有效时，这意味着你可以使用任何有效的颜色作为该属性的值。</p>
+<p>你还将看到被称为数据类型的 CSS 值。这些术语基本上是可以互换的——当你在 CSS 中看到一些被称为<strong>数据类型</strong>的东西时，它实际上只是一种表示值的奇特方式。</p>
+<p>CSS 值倾向于使用<strong>尖括号表示</strong>，以区别于 CSS 属性（例如 color 属性和 <code>&lt;color&gt;</code> 数据类型）。你可能还会混淆 CSS 数据类型和 HTML 元素，因为它们都使用尖括号，但这不太可能——它们在完全不一样的上下文中使用。</p>
+<p>在 CSS 中使用了各种数值数据类型。以下全部归类为数值：</p>
+<table>
+<thead>
+<tr>
+<th>数值类型</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>&lt;integer&gt;</code></td>
+<td><code>&lt;integer&gt;</code>是一个整数，比如 1024 或 -55。</td>
+</tr>
+<tr>
+<td><code>&lt;number&gt;</code></td>
+<td><code>&lt;number&gt;</code> 表示一个小数——它可能有小数点后面的部分，也可能没有，例如 0.255、128 或 -1.2。</td>
+</tr>
+<tr>
+<td><code>&lt;dimension&gt;</code></td>
+<td><code>&lt;dimension&gt;</code> 是一个 <code>&lt;number&gt;</code> 它有一个附加的单位，例如 45deg、5s 或 10px。<code>&lt;dimension&gt;</code> 是一个伞形类别，包括 <code>&lt;length&gt;</code>、<code>&lt;angle&gt;</code>、<code>&lt;time&gt;</code> 和 <code>&lt;resolution&gt;</code> 类型。</td>
+</tr>
+<tr>
+<td><code>&lt;percentage&gt;</code></td>
+<td><code>&lt;percentage&gt;</code> 表示一些其他值的一部分，例如 50%。百分比值总是相对于另一个量。例如，一个元素的长度相对于其父元素的长度。</td>
+</tr>
+</tbody></table>
+<h1 id="在-CSS-中调整大小"><a href="#在-CSS-中调整大小" class="headerlink" title="在 CSS 中调整大小"></a>在 CSS 中调整大小</h1><h2 id="原始尺寸，或固有尺寸"><a href="#原始尺寸，或固有尺寸" class="headerlink" title="原始尺寸，或固有尺寸"></a>原始尺寸，或固有尺寸</h2><p>在受 CSS 设置影响之前，HTML 元素有其原始的尺寸。一个直观的例子就是图像。一幅图像的长和宽由这个图像文件自身确定。这个尺寸就是固有尺寸。</p>
+<p>元素的固有尺寸是由其所包含的内容决定。</p>
+<h2 id="设置具体的尺寸"><a href="#设置具体的尺寸" class="headerlink" title="设置具体的尺寸"></a>设置具体的尺寸</h2><p>当给元素指定尺寸（然后其内容需要适合该尺寸）时，我们将其称为<strong>外部尺寸</strong>。以上面例子中的 <code>&lt;div&gt;</code> 举例——我们可以给它一个具体的 <strong>width</strong> 和 <strong>height</strong> 值，然后不论我们放什么内容进去它都是该尺寸。</p>
+<p>由于存在溢出问题，在网络上<strong>使用长度或百分</strong>比固定元素的高度<strong>需要非常小心</strong>。</p>
+<h3 id="使用百分数："><a href="#使用百分数：" class="headerlink" title="使用百分数："></a>使用百分数：</h3><p>当使用百分数时，你需要清楚，它是<strong>什么</strong>东西的百分数。对于一个处于另外一个容器当中的盒子，如果你给予了子盒子一个百分数作为宽度，那么它指的是<strong>父容器宽度</strong>的百分数。</p>
+<p>使用百分比作为元素外边距（margin）或填充（padding）的单位时，值是以包含块的<strong>内联尺寸</strong>进行计算的，也就是元素的水平宽度。</p>
+<h3 id="min-和-max-尺寸："><a href="#min-和-max-尺寸：" class="headerlink" title="min- 和 max- 尺寸："></a>min- 和 max- 尺寸：</h3><p>如果你有一个包含了变化容量的内容的盒子，而且你总是想让它<strong>至少</strong>有个确定的高度，你应该给它设置一个 min-height 属性。盒子就会一直保持大于这个最小高度，但是如果有比这个盒子在<strong>最小高度状态</strong>下所能容纳的<strong>更多内容</strong>，那么<strong>盒子就会变大</strong>。这在<strong>避免溢出</strong>的同时并<strong>处理变化容量</strong>的内容的时候是<strong>很有用</strong>的。</p>
+<p>max-width 的常见用法为，在没有足够空间以原有宽度展示图像时，让<strong>图像缩小</strong>，同时确保它们不会比这一宽度大。这个技术是用来让图片<strong>可响应</strong>的，所以在更小的设备上浏览的时候，它们会合适地缩放。</p>
+<h3 id="视口单位："><a href="#视口单位：" class="headerlink" title="视口单位："></a>视口单位：</h3><p>视口，即你在浏览器中看到的部分页面，也是有尺寸的。在 CSS 中，我们有与视口尺寸相关的度量单位，即意为<strong>视口宽度的</strong> <strong>vw</strong> <strong>单位</strong>，以及意为<strong>视口高度的</strong> <strong>vh</strong> <strong>单位</strong>。使用这些单位，你可以把一些东西做得随用户的视口改变大小。</p>
+<p>1vh 等于视口高度的 1%，1vw 则为视口宽度的 1%。</p>
+<p>如果你改变了 vh 和 vw 的对应值，盒子和字体的大小也会改变；视口大小的变化也会让它们的大小变化，因为它们是依照视口来定大小的。根据视口改变物件的大小是很有用的。</p>
+<h1 id="图像、媒体"><a href="#图像、媒体" class="headerlink" title="图像、媒体"></a>图像、媒体</h1><h2 id="替换元素"><a href="#替换元素" class="headerlink" title="替换元素"></a>替换元素</h2><p>图像和视频被描述为<strong>替换元素</strong>。这意味着 CSS 不能影响它们的内部布局——而仅影响它们在页面上相对于其他元素的位置。但是，正如我们将看到的，CSS 可以对图像执行多种操作。</p>
+<p>某些替换元素（例如图像和视频）也具有<strong>宽高比</strong>。这意味着它在水平（x）和垂直（y）方向上均具有大小，并且默认情况下将使用文件的固有尺寸进行显示。</p>
+<h2 id="调整图像大小"><a href="#调整图像大小" class="headerlink" title="调整图像大小"></a>调整图像大小</h2><p>下面的示例中有两个盒子，长宽均为 200 像素：</p>
+<ul>
+<li>一个包含了一张小于 200 像素的图像，它比盒子小，并且不会自动拉伸来充满盒子。</li>
+<li>另一张图像大于 200 像素，溢出了盒子。</li>
+</ul>
+<p>那么该如何处理溢出问题呢？</p>
+<p>一个常用的方法是将一张图片的max-width设为100% 。这将会使图片的尺寸小于等于盒子。这个技术也会对其他替换元素（例如 <code>&lt;video&gt;</code>，或者 <code>&lt;iframe&gt;</code> 起作用）。</p>
+<p>想把一张图像调整到能够完全盖住一个盒子的大小。<strong>object-fit</strong> <strong>属性</strong>可以在这里帮助你。当使用 object-fit 时，替换元素可以以多种方式被调整到合乎盒子的大小。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">200px</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">200px</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">img</span> &#123;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">100%</span>;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.cover</span> &#123;</span><br><span class="line">  <span class="attribute">object-fit</span>: cover;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.contain</span> &#123;</span><br><span class="line">  <span class="attribute">object-fit</span>: contain;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/%5Cimages%5C%E5%89%8D%E7%AB%AF%5C%E5%9B%BE%E5%83%8F.png"></p>
+<ul>
+<li>使用了值 <strong>cover</strong> 来缩小图像，同时维持了图像的原始比例。这样图像就可以<strong>充满盒子</strong>。但由于<strong>比例保持不变</strong>，图像多余的一部分将会被盒子裁切掉。</li>
+<li>使用值 <strong>contain</strong>，图像就会被缩放到足以<strong>完整</strong>地放到盒子里面的大小。</li>
+<li><strong>fill</strong> 值，它可以让图像<strong>充满盒子</strong>，但是<strong>不会维持比例</strong>。</li>
+</ul>
+<h2 id="布局中的替换元素"><a href="#布局中的替换元素" class="headerlink" title="布局中的替换元素"></a>布局中的替换元素</h2><p>在对替换元素使用各种 CSS 布局时，你可能会发现他们的表现方式与其他元素有一些细节上的差异。例如，flex 或者 grid 布局中，默认情况下元素会被拉伸到充满整块区域。但是<strong>图像不会被拉伸</strong>，而会对齐到网格区域或者弹性容器的起始处。</p>
+<p>替换元素在成为网格或者弹性布局的一部分时，有不同的默认行为。这一默认行为很有必要，因为它避免了替换元素被布局拉伸成奇怪的样子。</p>
+<h1 id="样式化表格"><a href="#样式化表格" class="headerlink" title="样式化表格"></a>样式化表格</h1><p>列出了有用的点：</p>
+<ul>
+<li>使你的表格标记尽可能简单，并且保持灵活性，例如使用百分比，这样设计就更有响应性。</li>
+<li>使用 <strong>table-layout</strong><strong>: fixed</strong> 创建更可控的表布局，可以通过在标题width中设置width来轻松设置列的宽度。</li>
+<li>使用 <strong>border-collapse</strong><strong>: collapse</strong> 使表元素边框合并，生成一个更整洁、更易于控制的外观。</li>
+<li>使用<code>&lt;thead&gt;</code>, <code>&lt;tbody&gt;</code>和<code>&lt;tfoot&gt;</code> 将表格分割成逻辑块，并提供额外的应用 CSS 的地方，因此如果需要的话，可以更容易地将样式层叠在一起。</li>
+<li>使用<strong>斑马线</strong>来让其他行更容易阅读。</li>
+<li>使用 text-align直线对齐你的<code>&lt;th&gt;</code>和<code>&lt;td&gt;</code>文本，使内容更整洁、更易于跟随。</li>
+<li><strong>caption-side:</strong> <strong>bottom</strong>属性使标题被放置在表格的底部。</li>
+</ul>
+</div><div class="article-licensing box"><div class="licensing-title"><p>CSS 基本语法</p><p><a href="http://example.com/2019/05/09/前端/CSS/CSS 基础语法/">http://example.com/2019/05/09/前端/CSS/CSS 基础语法/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>作者</h6><p>冷冷</p></div></div><div class="level-item is-narrow"><div><h6>发布于</h6><p>2019-05-09</p></div></div><div class="level-item is-narrow"><div><h6>更新于</h6><p>2020-10-10</p></div></div><div class="level-item is-narrow"><div><h6>许可协议</h6><p><a class="icons" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="icon fab fa-creative-commons"></i></a><a class="" rel="noopener" target="_blank" title="CC BY-NC-SA 4.0" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a></p></div></div></div></div></div><div class="article-tags is-size-7 mb-4"><span class="mr-2">#</span><a class="link-muted mr-2" rel="tag" href="/tags/CSS/">CSS</a></div><div class="sharethis-inline-share-buttons"></div><script src="//platform-api.sharethis.com/js/sharethis.js#property=5ab6f60ace89f00013641890&amp;product=inline-share-buttons" defer></script></article></div><!--!--><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="/2019/09/05/%E5%89%8D%E7%AB%AF/JavaScript/%E5%89%8D%E5%90%8E%E7%AB%AF%E6%95%B0%E6%8D%AE%E8%AF%B7%E6%B1%82/"><i class="level-item fas fa-chevron-left"></i><span class="level-item">前后端数据请求</span></a></div></nav><!--!--></div><div class="column column-left is-4-tablet is-4-desktop is-3-widescreen  order-1 is-sticky"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar is-rounded" src="https://s2.loli.net/2022/04/18/JlfLcsOwU8myTbB.jpg" alt="i呼啸冷冷"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">i呼啸冷冷</p><p class="is-size-6 is-block">Web Developer</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>Earth, Solar System</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">文章</p><a href="/archives"><p class="title">27</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">分类</p><a href="/categories"><p class="title">6</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">标签</p><a href="/tags"><p class="title">7</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/ppoffice" target="_blank" rel="noopener">关注我</a></div><div class="level is-mobile is-multiline"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Github" href="https://github.com/ppoffice"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Facebook" href="https://facebook.com"><i class="fab fa-facebook"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Twitter" href="https://twitter.com"><i class="fab fa-twitter"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Dribbble" href="https://dribbble.com"><i class="fab fa-dribbble"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="RSS" href="/"><i class="fas fa-rss"></i></a></div></div></div><div class="card widget" id="toc" data-type="toc"><div class="card-content"><div class="menu"><h3 class="menu-label">目录</h3><ul class="menu-list"><li><a class="level is-mobile" href="#HTML-中引入-CSS-的方式"><span class="level-left"><span class="level-item">1</span><span class="level-item">HTML 中引入 CSS 的方式</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#内联方式"><span class="level-left"><span class="level-item">1.1</span><span class="level-item">内联方式</span></span></a></li><li><a class="level is-mobile" href="#嵌入方式"><span class="level-left"><span class="level-item">1.2</span><span class="level-item">嵌入方式</span></span></a></li><li><a class="level is-mobile" href="#链接方式"><span class="level-left"><span class="level-item">1.3</span><span class="level-item">链接方式</span></span></a></li><li><a class="level is-mobile" href="#导入方式"><span class="level-left"><span class="level-item">1.4</span><span class="level-item">导入方式</span></span></a></li><li><a class="level is-mobile" href="#比较链接方式和导入方式"><span class="level-left"><span class="level-item">1.5</span><span class="level-item">比较链接方式和导入方式</span></span></a></li></ul></li><li><a class="level is-mobile" href="#规则"><span class="level-left"><span class="level-item">2</span><span class="level-item">@ 规则</span></span></a></li><li><a class="level is-mobile" href="#层叠、优先级和继承"><span class="level-left"><span class="level-item">3</span><span class="level-item">层叠、优先级和继承</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#层叠"><span class="level-left"><span class="level-item">3.1</span><span class="level-item">层叠</span></span></a></li><li><a class="level is-mobile" href="#优先级"><span class="level-left"><span class="level-item">3.2</span><span class="level-item">优先级</span></span></a></li><li><a class="level is-mobile" href="#继承"><span class="level-left"><span class="level-item">3.3</span><span class="level-item">继承</span></span></a></li></ul></li><li><a class="level is-mobile" href="#层叠层"><span class="level-left"><span class="level-item">4</span><span class="level-item">层叠层</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#层叠层的优先权顺序"><span class="level-left"><span class="level-item">4.1</span><span class="level-item">层叠层的优先权顺序</span></span></a></li><li><a class="level is-mobile" href="#层叠层可以解决的问题"><span class="level-left"><span class="level-item">4.2</span><span class="level-item">层叠层可以解决的问题</span></span></a></li><li><a class="level is-mobile" href="#嵌套层叠层可以解决的问题"><span class="level-left"><span class="level-item">4.3</span><span class="level-item">嵌套层叠层可以解决的问题</span></span></a></li><li><a class="level is-mobile" href="#创建层叠层"><span class="level-left"><span class="level-item">4.4</span><span class="level-item">创建层叠层</span></span></a></li><li><a class="level is-mobile" href="#用于具名层的-layer-声明-at-规则"><span class="level-left"><span class="level-item">4.5</span><span class="level-item">用于具名层的 @layer 声明 at 规则</span></span></a></li><li><a class="level is-mobile" href="#用于具名层和匿名层的-layer-块-at-规则"><span class="level-left"><span class="level-item">4.6</span><span class="level-item">用于具名层和匿名层的 @layer 块 at 规则</span></span></a></li><li><a class="level is-mobile" href="#层创建和媒体查询"><span class="level-left"><span class="level-item">4.7</span><span class="level-item">层创建和媒体查询</span></span></a></li><li><a class="level is-mobile" href="#使用-import-将样式表导入具名层和匿名层"><span class="level-left"><span class="level-item">4.8</span><span class="level-item">使用 @import 将样式表导入具名层和匿名层</span></span></a></li><li><a class="level is-mobile" href="#嵌套层的概述"><span class="level-left"><span class="level-item">4.9</span><span class="level-item">嵌套层的概述</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#嵌套层的优点"><span class="level-left"><span class="level-item">4.9.1</span><span class="level-item">嵌套层的优点</span></span></a></li><li><a class="level is-mobile" href="#创建嵌套层叠层"><span class="level-left"><span class="level-item">4.9.2</span><span class="level-item">创建嵌套层叠层</span></span></a></li><li><a class="level is-mobile" href="#根据层的顺序确定优先权"><span class="level-left"><span class="level-item">4.9.3</span><span class="level-item">根据层的顺序确定优先权</span></span></a></li><li><a class="level is-mobile" href="#常规层叠层的优先权顺序"><span class="level-left"><span class="level-item">4.9.4</span><span class="level-item">常规层叠层的优先权顺序</span></span></a></li><li><a class="level is-mobile" href="#嵌套层叠层的优先权顺序"><span class="level-left"><span class="level-item">4.9.5</span><span class="level-item">嵌套层叠层的优先权顺序</span></span></a></li></ul></li></ul></li><li><a class="level is-mobile" href="#盒模型"><span class="level-left"><span class="level-item">5</span><span class="level-item">盒模型</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#块级盒子（Block-box）和-内联盒子（Inline-box）"><span class="level-left"><span class="level-item">5.1</span><span class="level-item">块级盒子（Block box）和 内联盒子（Inline box）</span></span></a></li><li><a class="level is-mobile" href="#什么是-CSS-盒模型"><span class="level-left"><span class="level-item">5.2</span><span class="level-item">什么是 CSS 盒模型</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#盒模型的各个部分"><span class="level-left"><span class="level-item">5.2.1</span><span class="level-item">盒模型的各个部分</span></span></a></li><li><a class="level is-mobile" href="#标准盒模型"><span class="level-left"><span class="level-item">5.2.2</span><span class="level-item">标准盒模型</span></span></a></li><li><a class="level is-mobile" href="#替代（IE）盒模型"><span class="level-left"><span class="level-item">5.2.3</span><span class="level-item">替代（IE）盒模型</span></span></a></li></ul></li><li><a class="level is-mobile" href="#外边距折叠"><span class="level-left"><span class="level-item">5.3</span><span class="level-item">外边距折叠</span></span></a></li><li><a class="level is-mobile" href="#使用-display-inline-block"><span class="level-left"><span class="level-item">5.4</span><span class="level-item">使用 display: inline-block</span></span></a></li></ul></li><li><a class="level is-mobile" href="#背景"><span class="level-left"><span class="level-item">6</span><span class="level-item">背景</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#控制背景平铺行为"><span class="level-left"><span class="level-item">6.1</span><span class="level-item">控制背景平铺行为</span></span></a></li><li><a class="level is-mobile" href="#调整背景图像的大小"><span class="level-left"><span class="level-item">6.2</span><span class="level-item">调整背景图像的大小</span></span></a></li><li><a class="level is-mobile" href="#背景图像定位"><span class="level-left"><span class="level-item">6.3</span><span class="level-item">背景图像定位</span></span></a></li><li><a class="level is-mobile" href="#渐变背景"><span class="level-left"><span class="level-item">6.4</span><span class="level-item">渐变背景</span></span></a></li><li><a class="level is-mobile" href="#多个背景图像"><span class="level-left"><span class="level-item">6.5</span><span class="level-item">多个背景图像</span></span></a></li><li><a class="level is-mobile" href="#背景附加"><span class="level-left"><span class="level-item">6.6</span><span class="level-item">背景附加</span></span></a></li><li><a class="level is-mobile" href="#使用-background-简写属性"><span class="level-left"><span class="level-item">6.7</span><span class="level-item">使用 background 简写属性</span></span></a></li></ul></li><li><a class="level is-mobile" href="#处理不同方向的文本"><span class="level-left"><span class="level-item">7</span><span class="level-item">处理不同方向的文本</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#逻辑属性和逻辑值"><span class="level-left"><span class="level-item">7.1</span><span class="level-item">逻辑属性和逻辑值</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#逻辑外边距、边框和内边距属性"><span class="level-left"><span class="level-item">7.1.1</span><span class="level-item">逻辑外边距、边框和内边距属性</span></span></a></li><li><a class="level is-mobile" href="#逻辑值"><span class="level-left"><span class="level-item">7.1.2</span><span class="level-item">逻辑值</span></span></a></li></ul></li></ul></li><li><a class="level is-mobile" href="#溢出的内容（BFC）"><span class="level-left"><span class="level-item">8</span><span class="level-item">溢出的内容（BFC）</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#什么是溢出？"><span class="level-left"><span class="level-item">8.1</span><span class="level-item">什么是溢出？</span></span></a></li><li><a class="level is-mobile" href="#CSS-尽力减少“数据损失”"><span class="level-left"><span class="level-item">8.2</span><span class="level-item">CSS 尽力减少“数据损失”</span></span></a></li><li><a class="level is-mobile" href="#overflow-属性"><span class="level-left"><span class="level-item">8.3</span><span class="level-item">overflow 属性</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#区别和选择"><span class="level-left"><span class="level-item">8.3.1</span><span class="level-item">区别和选择:</span></span></a></li></ul></li><li><a class="level is-mobile" href="#溢出建立了区块格式化上下文"><span class="level-left"><span class="level-item">8.4</span><span class="level-item">溢出建立了区块格式化上下文</span></span></a></li></ul></li><li><a class="level is-mobile" href="#CSS-的值与单位"><span class="level-left"><span class="level-item">9</span><span class="level-item">CSS 的值与单位</span></span></a></li><li><a class="level is-mobile" href="#在-CSS-中调整大小"><span class="level-left"><span class="level-item">10</span><span class="level-item">在 CSS 中调整大小</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#原始尺寸，或固有尺寸"><span class="level-left"><span class="level-item">10.1</span><span class="level-item">原始尺寸，或固有尺寸</span></span></a></li><li><a class="level is-mobile" href="#设置具体的尺寸"><span class="level-left"><span class="level-item">10.2</span><span class="level-item">设置具体的尺寸</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#使用百分数："><span class="level-left"><span class="level-item">10.2.1</span><span class="level-item">使用百分数：</span></span></a></li><li><a class="level is-mobile" href="#min-和-max-尺寸："><span class="level-left"><span class="level-item">10.2.2</span><span class="level-item">min- 和 max- 尺寸：</span></span></a></li><li><a class="level is-mobile" href="#视口单位："><span class="level-left"><span class="level-item">10.2.3</span><span class="level-item">视口单位：</span></span></a></li></ul></li></ul></li><li><a class="level is-mobile" href="#图像、媒体"><span class="level-left"><span class="level-item">11</span><span class="level-item">图像、媒体</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#替换元素"><span class="level-left"><span class="level-item">11.1</span><span class="level-item">替换元素</span></span></a></li><li><a class="level is-mobile" href="#调整图像大小"><span class="level-left"><span class="level-item">11.2</span><span class="level-item">调整图像大小</span></span></a></li><li><a class="level is-mobile" href="#布局中的替换元素"><span class="level-left"><span class="level-item">11.3</span><span class="level-item">布局中的替换元素</span></span></a></li></ul></li><li><a class="level is-mobile" href="#样式化表格"><span class="level-left"><span class="level-item">12</span><span class="level-item">样式化表格</span></span></a></li></ul></div></div><style>#toc .menu-list > li > a.is-active + .menu-list { display: block; }#toc .menu-list > li > a + .menu-list { display: none; }</style><script src="/js/toc.js" defer></script></div><div class="column-right-shadow is-hidden-widescreen is-sticky"></div></div><div class="column column-right is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only order-3 is-sticky"><div class="card widget" data-type="recent-posts"><div class="card-content"><h3 class="menu-label">最新文章</h3><article class="media"><figure class="media-left"><a class="image" href="/2023/11/19/%E5%89%8D%E7%AB%AF/%E9%AB%98%E7%BA%A7/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"><img src="/./img/%E5%89%8D%E7%AB%AF/web.png" alt="设计模式"></a></figure><div class="media-content"><p class="date"><time dateTime="2023-11-19T14:10:43.000Z">2023-11-19</time></p><p class="title"><a href="/2023/11/19/%E5%89%8D%E7%AB%AF/%E9%AB%98%E7%BA%A7/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a></p><p class="categories"><a href="/categories/%E5%89%8D%E7%AB%AF/">前端</a></p></div></article><article class="media"><figure class="media-left"><a class="image" href="/2023/09/29/%E5%89%8D%E7%AB%AF/%E9%AB%98%E7%BA%A7/%E5%89%8D%E7%AB%AF%E5%AE%89%E5%85%A8%E6%80%A7/"><img src="/./img/%E5%89%8D%E7%AB%AF/web.png" alt="前端安全性"></a></figure><div class="media-content"><p class="date"><time dateTime="2023-09-29T14:10:43.000Z">2023-09-29</time></p><p class="title"><a href="/2023/09/29/%E5%89%8D%E7%AB%AF/%E9%AB%98%E7%BA%A7/%E5%89%8D%E7%AB%AF%E5%AE%89%E5%85%A8%E6%80%A7/">前端安全性</a></p><p class="categories"><a href="/categories/%E5%89%8D%E7%AB%AF/">前端</a></p></div></article><article class="media"><figure class="media-left"><a class="image" href="/2023/08/19/%E5%89%8D%E7%AB%AF/%E9%AB%98%E7%BA%A7/%E4%BD%8E%E4%BB%A3%E7%A0%81%E8%AE%BE%E8%AE%A1%E5%99%A8%E7%9A%84%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86/"><img src="/./img/%E5%89%8D%E7%AB%AF/web.png" alt="低代码设计器的实现原理"></a></figure><div class="media-content"><p class="date"><time dateTime="2023-08-19T14:10:43.000Z">2023-08-19</time></p><p class="title"><a href="/2023/08/19/%E5%89%8D%E7%AB%AF/%E9%AB%98%E7%BA%A7/%E4%BD%8E%E4%BB%A3%E7%A0%81%E8%AE%BE%E8%AE%A1%E5%99%A8%E7%9A%84%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86/">低代码设计器的实现原理</a></p><p class="categories"><a href="/categories/%E5%89%8D%E7%AB%AF/">前端</a></p></div></article><article class="media"><figure class="media-left"><a class="image" href="/2023/06/19/%E5%89%8D%E7%AB%AF/%E9%AB%98%E7%BA%A7/%E5%8F%91%E5%B8%83%20npm%20%E5%8C%85/"><img src="/./img/%E5%89%8D%E7%AB%AF/web.png" alt="发布 npm 包"></a></figure><div class="media-content"><p class="date"><time dateTime="2023-06-19T14:10:43.000Z">2023-06-19</time></p><p class="title"><a href="/2023/06/19/%E5%89%8D%E7%AB%AF/%E9%AB%98%E7%BA%A7/%E5%8F%91%E5%B8%83%20npm%20%E5%8C%85/">发布 npm 包</a></p><p class="categories"><a href="/categories/%E5%89%8D%E7%AB%AF/">前端</a></p></div></article><article class="media"><figure class="media-left"><a class="image" href="/2023/05/19/%E5%89%8D%E7%AB%AF/%E9%AB%98%E7%BA%A7/%E4%BD%8E%E4%BB%A3%E7%A0%81%E7%AE%80%E4%BB%8B/"><img src="/./img/%E5%89%8D%E7%AB%AF/web.png" alt="低代码简介"></a></figure><div class="media-content"><p class="date"><time dateTime="2023-05-19T14:10:43.000Z">2023-05-19</time></p><p class="title"><a href="/2023/05/19/%E5%89%8D%E7%AB%AF/%E9%AB%98%E7%BA%A7/%E4%BD%8E%E4%BB%A3%E7%A0%81%E7%AE%80%E4%BB%8B/">低代码简介</a></p><p class="categories"><a href="/categories/%E5%89%8D%E7%AB%AF/">前端</a></p></div></article></div></div></div></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="https://s2.loli.net/2022/04/18/JlfLcsOwU8myTbB.jpg" alt="冷冷" height="28"></a><p class="is-size-7"><span>&copy; 2024 冷冷</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Discuss on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus/discussions"><i class="fas fa-comments"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("zh-cn");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="/js/column.js"></script><script src="/js/animation.js"></script><a id="back-to-top" title="回到顶端" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/js/back_to_top.js" defer></script><!--!--><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.js" defer></script><script>window.addEventListener("load", () => {
+      window.cookieconsent.initialise({
+        type: "info",
+        theme: "edgeless",
+        static: false,
+        position: "bottom-left",
+        content: {
+          message: "此网站使用Cookie来改善您的体验。",
+          dismiss: "知道了！",
+          allow: "允许使用Cookie",
+          deny: "拒绝",
+          link: "了解更多",
+          policy: "Cookie政策",
+          href: "https://www.cookiesandyou.com/",
+        },
+        palette: {
+          popup: {
+            background: "#edeff5",
+            text: "#838391"
+          },
+          button: {
+            background: "#4b81e8"
+          },
+        },
+      });
+    });</script><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><!--!--><div id="outdated"><h6>Your browser is out-of-date!</h6><p>Update your browser to view this website correctly.&amp;npsb;<a id="btnUpdateBrowser" target="_blank" rel="noopener" href="http://outdatedbrowser.com/">Update my browser now </a></p><p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">×</a></p></div><script src="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.js" defer></script><script>window.addEventListener("load", function () {
+            outdatedBrowser({
+                bgColor: '#f25648',
+                color: '#ffffff',
+                lowerThan: 'object-fit' // display on IE11 or below
+            });
+        });</script><!--!--><!--!--><!--!--><script src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="想要查找什么..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"想要查找什么...","untitled":"(无标题)","posts":"文章","pages":"页面","categories":"分类","tags":"标签"});
+        });</script></body></html>

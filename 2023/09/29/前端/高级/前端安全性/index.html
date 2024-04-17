@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><title>前端安全性 - 冷冷</title><link rel="manifest" href="/manifest.json"><meta name="theme-color" content="#f7f7f7"><meta name="application-name" content="Icaurs - Hexo Theme"><meta name="msapplication-TileImage" content="https://s2.loli.net/2022/04/18/JlfLcsOwU8myTbB.jpg"><meta name="msapplication-TileColor" content="#f7f7f7"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Icaurs - Hexo Theme"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="一、前端有哪些安全性问题及危害 跨站脚本攻击（XSS）：XSS攻击发生在恶意用户将恶意脚本注入到网页中，然后用户在浏览器中运行这些脚本时会受到攻击。"><meta property="og:type" content="blog"><meta property="og:title" content="前端安全性"><meta property="og:url" content="http://example.com/2023/09/29/%E5%89%8D%E7%AB%AF/%E9%AB%98%E7%BA%A7/%E5%89%8D%E7%AB%AF%E5%AE%89%E5%85%A8%E6%80%A7/"><meta property="og:site_name" content="冷冷"><meta property="og:description" content="一、前端有哪些安全性问题及危害 跨站脚本攻击（XSS）：XSS攻击发生在恶意用户将恶意脚本注入到网页中，然后用户在浏览器中运行这些脚本时会受到攻击。"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="http://example.com/img/%E5%89%8D%E7%AB%AF/web.png"><meta property="article:published_time" content="2023-09-29T14:10:43.000Z"><meta property="article:modified_time" content="2023-10-07T10:09:00.000Z"><meta property="article:author" content="冷冷"><meta property="article:tag" content="前端"><meta property="twitter:card" content="summary"><meta property="twitter:image:src" content="http://example.com/img/%E5%89%8D%E7%AB%AF/web.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com/2023/09/29/%E5%89%8D%E7%AB%AF/%E9%AB%98%E7%BA%A7/%E5%89%8D%E7%AB%AF%E5%AE%89%E5%85%A8%E6%80%A7/"},"headline":"前端安全性","image":["http://example.com/img/%E5%89%8D%E7%AB%AF/web.png"],"datePublished":"2023-09-29T14:10:43.000Z","dateModified":"2023-10-07T10:09:00.000Z","author":{"@type":"Person","name":"冷冷"},"publisher":{"@type":"Organization","name":"冷冷","logo":{"@type":"ImageObject","url":"https://s2.loli.net/2022/04/18/JlfLcsOwU8myTbB.jpg"}},"description":"一、前端有哪些安全性问题及危害 跨站脚本攻击（XSS）：XSS攻击发生在恶意用户将恶意脚本注入到网页中，然后用户在浏览器中运行这些脚本时会受到攻击。"}</script><link rel="canonical" href="http://example.com/2023/09/29/%E5%89%8D%E7%AB%AF/%E9%AB%98%E7%BA%A7/%E5%89%8D%E7%AB%AF%E5%AE%89%E5%85%A8%E6%80%A7/"><link rel="icon" href="https://s2.loli.net/2022/04/18/JlfLcsOwU8myTbB.jpg"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.0.0/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><!--!--><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css"><script src="https://www.googletagmanager.com/gtag/js?id=UA-72437521-5" async></script><script>window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+    
+        gtag('config', 'UA-72437521-5');</script><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.css"><style>.pace{-webkit-pointer-events:none;pointer-events:none;-webkit-user-select:none;-moz-user-select:none;user-select:none}.pace-inactive{display:none}.pace .pace-progress{background:#3273dc;position:fixed;z-index:2000;top:0;right:100%;width:100%;height:2px}</style><script src="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/pace.min.js"></script><!--!--><!--!--><!-- hexo injector head_end start --><script>
+  (function () {
+      function switchTab() {
+          if (!location.hash) {
+            return;
+          }
+
+          const id = '#' + CSS.escape(location.hash.substring(1));
+          const $tabMenu = document.querySelector(`.tabs a[href="${id}"]`);
+          if (!$tabMenu) {
+            return;
+          }
+
+          const $tabMenuContainer = $tabMenu.parentElement.parentElement;
+          Array.from($tabMenuContainer.children).forEach($menu => $menu.classList.remove('is-active'));
+          Array.from($tabMenuContainer.querySelectorAll('a'))
+              .map($menu => document.getElementById($menu.getAttribute("href").substring(1)))
+              .forEach($content => $content.classList.add('is-hidden'));
+
+          if ($tabMenu) {
+              $tabMenu.parentElement.classList.add('is-active');
+          }
+          const $activeTab = document.querySelector(id);
+          if ($activeTab) {
+              $activeTab.classList.remove('is-hidden');
+          }
+      }
+      switchTab();
+      window.addEventListener('hashchange', switchTab, false);
+  })();
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"></head><body class="is-3-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="https://s2.loli.net/2022/04/18/JlfLcsOwU8myTbB.jpg" alt="冷冷" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">主页</a><a class="navbar-item" href="/archives">归档</a><a class="navbar-item" href="/categories">分类</a><a class="navbar-item" href="/tags">标签</a><a class="navbar-item" href="/about">关于我</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Discuss on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus/discussions"><i class="fas fa-comments"></i></a><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a><a class="navbar-item is-hidden-tablet catalogue" title="目录" href="javascript:;"><i class="fas fa-list-ul"></i></a><a class="navbar-item search" title="搜索" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-6-widescreen"><div class="card"><div class="card-image"><span class="image is-7by3"><img class="fill" src="/./img/%E5%89%8D%E7%AB%AF/web.png" alt="前端安全性"></span></div><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2023-09-29T14:10:43.000Z" title="2023/9/29 22:10:43">2023-09-29</time>发表</span><span class="level-item"><a class="link-muted" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a></span><span class="level-item">20 分钟读完 (大约2935个字)</span></div></div><h1 class="title is-3 is-size-4-mobile">前端安全性</h1><div class="content"><h1 id="一、前端有哪些安全性问题及危害"><a href="#一、前端有哪些安全性问题及危害" class="headerlink" title="一、前端有哪些安全性问题及危害"></a>一、前端有哪些安全性问题及危害</h1><ul>
+<li><strong>跨站脚本攻击（XSS）：</strong>XSS攻击发生在恶意用户将恶意脚本注入到网页中，然后用户在浏览器中运行这些脚本时会受到攻击。</li>
+</ul>
+<span id="more"></span>
+
+<ul>
+<li><ul>
+<li><strong>危害：</strong>这些脚本可能会窃取用户的敏感信息，如cookie、session、密码等，或者篡改网页的内容和样式，或者执行一些恶意的操作，如弹出广告、重定向、下载木马等。</li>
+</ul>
+</li>
+<li><p><strong>跨站请求伪造（CSRF）：</strong>CSRF攻击发生在恶意用户利用用户已经登录的网站的身份，向该网站发送一些请求。</p>
+</li>
+<li><ul>
+<li><strong>危害：</strong>执行一些非法的操作，如转账、修改密码、删除数据等。用户可能不知道自己的身份被利用，或者被诱导点击一些链接或按钮，触发这些请求。</li>
+</ul>
+</li>
+<li><p><strong>点击劫持（ClickJacking）：</strong>点击劫持攻击发生在恶意用户在一个网页上覆盖了另一个网页的一部分，让用户以为自己在点击原网页的内容，实际上却在点击被覆盖的网页的内容。</p>
+</li>
+<li><ul>
+<li><strong>危害：</strong>会执行一些不知情的操作，如关注、点赞、授权等。</li>
+</ul>
+</li>
+<li><p><strong>错误的内容推断（Content Sniffing）：</strong>内容推断攻击发生在浏览器在接收到服务器返回的内容时，没有正确地根据内容类型（Content-Type）来解析，而是根据内容的内容来猜测。</p>
+</li>
+<li><ul>
+<li><strong>危害：</strong>导致一些非预期的结果，如将一些文本文件当作脚本文件来执行，或者将一些图片文件当作HTML文件来渲染。</li>
+</ul>
+</li>
+<li><p><strong>中间人攻击（Man-in-the-Middle Attack）：</strong>中间人攻击发生在用户与服务器之间的通信被第三方截获。</p>
+</li>
+<li><ul>
+<li><strong>危害：</strong>窃取或篡改通信的内容，如请求、响应、数据、证书等。这可能会导致用户的信息泄露，或者被欺骗访问一些假冒的网站。</li>
+</ul>
+</li>
+<li><p><strong>HTTP劫持（HTTP Hijacking）：</strong>HTTP劫持攻击发生在用户访问一些没有使用HTTPS协议的网站时，第三方可以在用户与服务器之间插入一些恶意的代码或内容。</p>
+</li>
+<li><ul>
+<li><strong>危害：</strong>影响用户的正常浏览，或者执行一些恶意的操作，如弹出广告、重定向、下载木马等。</li>
+</ul>
+</li>
+<li><p><strong>DNS劫持（DNS Hijacking）：</strong>DNS劫持攻击发生在用户访问一些网站时，第三方可以修改DNS服务器的解析结果。</p>
+</li>
+<li><ul>
+<li><strong>危害：</strong>将用户的请求导向一些假冒的网站，或者拦截用户的请求，从而影响用户的正常浏览，或者执行一些恶意的操作，如弹出广告、重定向、下载木马等。</li>
+</ul>
+</li>
+<li><p><strong>SQL注入（SQL Injection）：</strong>SQL注入攻击发生在用户向服务器发送一些包含SQL语句的数据时，服务器没有正确地过滤或转义这些数据，而是直接拼接到SQL语句中执行。</p>
+</li>
+<li><ul>
+<li><strong>危害</strong>：导致数据库的数据被泄露、修改、删除或破坏。</li>
+</ul>
+</li>
+</ul>
+<h1 id="二、安全性检测工具"><a href="#二、安全性检测工具" class="headerlink" title="二、安全性检测工具"></a>二、安全性检测工具</h1><ul>
+<li><p><strong>AWVS</strong>：AWVS是一款专注于Web应用程序的<strong>自动化扫描工具</strong>，它可以快速地识别和报告各种Web漏洞，如<strong>XSS、SQL注入、文件包含</strong>等。它还可以进行<strong>源代码分析、漏洞验证和报表生成</strong>等功能。</p>
+</li>
+<li><ul>
+<li>优点：扫描速度快、准确率高、漏洞规则库全面。</li>
+<li>缺点：没有中文界面、功能单一、不能进行手动测试。</li>
+<li>网站：<a target="_blank" rel="noopener" href="https://www.acunetix.com/">https://www.acunetix.com</a></li>
+</ul>
+</li>
+<li><p><strong>IBM AppScan</strong>：IBM AppScan是一款由IBM开发的Web应用程序安全测试和漏洞扫描工具，它可以利用<strong>自动扫描、手动探测和混合模式</strong>来检测Web应用程序中的漏洞。它还<strong>可以进行代码审查、合规评估和风险管理</strong>等功能。</p>
+</li>
+<li><ul>
+<li>优点：功能强大、支持多种技术和协议、适合扫描大型和复杂的应用程序。</li>
+<li>缺点：价格昂贵、扫描速度一般、操作复杂。</li>
+<li>网站：<a target="_blank" rel="noopener" href="https://www.hcltechsw.com/products/appscan">https://www.hcltechsw.com/products/appscan</a></li>
+</ul>
+</li>
+<li><p><strong>Xray</strong>：Xray是一款由长亭科技开发的Web安全扫描工具，它可以利用被动扫描的方式来发现Web应用程序中的漏洞。它还可以<strong>利用自定义的POC</strong>来扫描特定的漏洞，或者<strong>利用内置的盲打平台</strong>来验证一些难以检测的漏洞。</p>
+</li>
+<li><ul>
+<li>优点：功能灵活、支持多种平台和语言、有社区版和高级版可供选择。</li>
+<li>缺点：扫描范围有限、需要配合其他工具使用、误报率较高。</li>
+<li>网站：<a target="_blank" rel="noopener" href="https://xray.cool/">https://xray.cool</a></li>
+</ul>
+</li>
+<li><p><strong>ESLint：</strong> 主要用于检测<strong>代码质量</strong>和潜在的安全问题，包括 <strong>XSS、CSRF</strong> 等。</p>
+</li>
+<li><ul>
+<li>优点：强大的插件系统，支持定制规则；广泛应用于前端项目。</li>
+<li>缺点：无法覆盖所有安全问题，主要关注代码规范和质量。</li>
+<li>网站：<a target="_blank" rel="noopener" href="https://eslint.org/">https://eslint.org/</a></li>
+</ul>
+</li>
+<li><p><strong>OWASP ZAP</strong>：OWASP ZAP是一个<strong>开源</strong>的、<strong>跨平台</strong>的、<strong>易于使用</strong>的网络应用程序安全测试工具，可以帮助开发者和测试人员发现和修复网络应用程序的安全漏洞，如<strong>XSS、CSRF、SQL注入</strong>等。</p>
+</li>
+<li><ul>
+<li>优点：功能强大、支持多种模式和插件、支持自动化和集成、支持多种语言和平台、有活跃的社区和文档。</li>
+<li>缺点：界面不够友好、有一定的学习成本、可能会产生一些误报或漏报。</li>
+<li>网站：<a target="_blank" rel="noopener" href="https://www.zaproxy.org/">https://www.zaproxy.org/</a></li>
+</ul>
+</li>
+<li><p><strong>Nmap</strong>：Nmap是一个开源的、跨平台的、命令行的网络探测和安全扫描工具，可以帮助开发者和测试人员发现和分析网络上的主机和服务，如<strong>端口、协议、操作系统、版本</strong>等。</p>
+</li>
+<li><ul>
+<li>优点：功能强大、支持多种扫描技术和脚本、支持自动化和集成、有丰富的文档和案例。</li>
+<li>缺点：界面不够友好、有一定的学习成本、可能会被防火墙或入侵检测系统检测或阻止。</li>
+<li>网站：<a target="_blank" rel="noopener" href="https://nmap.org/">https://nmap.org/</a></li>
+</ul>
+</li>
+<li><p><strong>Retire.js</strong>：Retire.js是一个开源的、基于JavaScript的、浏览器或命令行的前端安全扫描工具，可以帮助开发者和测试人员发现和更新网页中使用的<strong>过时或有漏洞的JavaScript库</strong>，如jQuery、Angular、React等。</p>
+</li>
+<li><ul>
+<li>优点：功能简单、易于使用、支持多种浏览器和平台、有活跃的社区和文档。</li>
+<li>缺点：功能单一、只能检测JavaScript库的漏洞、可能会产生一些误报或漏报。</li>
+<li>网站：<a target="_blank" rel="noopener" href="https://github.com/retirejs/retire.js/">https://github.com/retirejs/retire.js/</a></li>
+</ul>
+</li>
+<li><p><strong>SonarQube：</strong></p>
+</li>
+<li><ul>
+<li>检测内容：代码质量审查，包括安全漏洞。</li>
+<li>优点：集成到CI&#x2F;CD流程，自动化审查。</li>
+<li>缺点：配置和维护需要专业知识。</li>
+<li>网站：<a target="_blank" rel="noopener" href="https://www.sonarsource.com/products/sonarqube/">https://www.sonarsource.com/products/sonarqube/</a></li>
+</ul>
+</li>
+<li><p><strong>Snyk：</strong>	</p>
+</li>
+<li><ul>
+<li>检测内容：依赖的安全性检查。</li>
+<li>优点：易于使用，提供实时反馈。</li>
+<li>缺点：在某些复杂的项目中可能不够深入。</li>
+<li>网站：<a target="_blank" rel="noopener" href="https://snyk.io/">https://snyk.io/</a></li>
+</ul>
+</li>
+</ul>
+<h1 id="三、如何防范"><a href="#三、如何防范" class="headerlink" title="三、如何防范"></a>三、如何防范</h1><ul>
+<li><p><strong>防范XSS攻击：</strong>防范XSS攻击的主要方法是对用户输入的数据进行验证和编码，避免在网页中直接插入用户提供的内容，或者使用一些安全的模板引擎或框架来渲染网页。另外，还可以使用内容安全策略（CSP）来限制网页中可以执行的脚本的来源，或者使用HTTP头部的X-XSS-Protection来启用浏览器的XSS过滤器。</p>
+</li>
+<li><p><strong>防范CSRF攻击：</strong>防范CSRF攻击的主要方法是对用户发送的请求进行验证，确保请求是由用户本人发起的，而不是被第三方诱导或伪造的。常用的验证方法有使用验证码、token、referer、origin等来检查请求的合法性，或者使用HTTP头部的SameSite属性来限制cookie的跨域发送。</p>
+</li>
+<li><p><strong>防范点击劫持攻击</strong>：防范点击劫持攻击的主要方法是使用HTTP头部的X-Frame-Options来禁止网页被嵌入到其他网页中，或者使用JavaScript的framebusting技术来检测和跳出被嵌套的情况，或者使用可视化的提示或确认来提醒用户点击的内容。</p>
+</li>
+<li><p><strong>防范内容推断攻击</strong>：防范内容推断攻击的主要方法是使用HTTP头部的X-Content-Type-Options来禁止浏览器对内容类型进行推断，或者使用正确的内容类型（Content-Type）和字符集（Charset）来标识服务器返回的内容，或者使用文件扩展名来区分不同类型的文件。</p>
+</li>
+<li><p><strong>防范中间人攻击</strong>：防范中间人攻击的主要方法是使用HTTPS协议来加密用户与服务器之间的通信，或者使用数字证书来验证服务器的身份，或者使用HSTS（HTTP Strict Transport Security）来强制浏览器只使用HTTPS协议，或者使用HPKP（HTTP Public Key Pinning）来绑定服务器的公钥，或者使用DNSSEC（DNS Security Extensions）来保护DNS的完整性。</p>
+</li>
+<li><p><strong>防范HTTP劫持攻击</strong>：防范HTTP劫持攻击的主要方法是使用HTTPS协议来加密用户与服务器之间的通信，或者使用CSP（Content Security Policy）来限制网页中可以加载的资源的来源，或者使用SRI（Subresource Integrity）来验证网页中加载的资源的完整性，或者使用HTTP头部的X-Content-Type-Options和X-XSS-Protection来禁止浏览器对内容类型进行推断和过滤XSS攻击。</p>
+</li>
+<li><p><strong>防范DNS劫持攻击</strong>：防范DNS劫持攻击的主要方法是使用HTTPS协议来加密用户与服务器之间的通信，或者使用数字证书来验证服务器的身份，或者使用DNSSEC（DNS Security Extensions）来保护DNS的完整性，或者使用DNSCrypt来加密DNS的查询和响应，或者使用可信的DNS服务器，如Google Public DNS或Cloudflare DNS。</p>
+</li>
+<li><p><strong>防范SQL注入攻击</strong>：防范SQL注入攻击的主要方法是对用户输入的数据进行验证和转义，避免在SQL语句中直接拼接用户提供的内容，或者使用参数化的查询或预编译的语句来执行SQL语句，或者使用ORM（Object Relational Mapping）框架来操作数据库，或者使用最小权限的用户来访问数据库，或者使用WAF（Web Application Firewall）来过滤恶意的请求。</p>
+</li>
+</ul>
+</div><div class="article-licensing box"><div class="licensing-title"><p>前端安全性</p><p><a href="http://example.com/2023/09/29/前端/高级/前端安全性/">http://example.com/2023/09/29/前端/高级/前端安全性/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>作者</h6><p>冷冷</p></div></div><div class="level-item is-narrow"><div><h6>发布于</h6><p>2023-09-29</p></div></div><div class="level-item is-narrow"><div><h6>更新于</h6><p>2023-10-07</p></div></div><div class="level-item is-narrow"><div><h6>许可协议</h6><p><a class="icons" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="icon fab fa-creative-commons"></i></a><a class="" rel="noopener" target="_blank" title="CC BY-NC-SA 4.0" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a></p></div></div></div></div></div><div class="article-tags is-size-7 mb-4"><span class="mr-2">#</span><a class="link-muted mr-2" rel="tag" href="/tags/%E5%89%8D%E7%AB%AF/">前端</a></div><div class="sharethis-inline-share-buttons"></div><script src="//platform-api.sharethis.com/js/sharethis.js#property=5ab6f60ace89f00013641890&amp;product=inline-share-buttons" defer></script></article></div><!--!--><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="/2023/11/19/%E5%89%8D%E7%AB%AF/%E9%AB%98%E7%BA%A7/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"><i class="level-item fas fa-chevron-left"></i><span class="level-item">设计模式</span></a></div><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/2023/08/19/%E5%89%8D%E7%AB%AF/%E9%AB%98%E7%BA%A7/%E4%BD%8E%E4%BB%A3%E7%A0%81%E8%AE%BE%E8%AE%A1%E5%99%A8%E7%9A%84%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86/"><span class="level-item">低代码设计器的实现原理</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><!--!--></div><div class="column column-left is-4-tablet is-4-desktop is-3-widescreen  order-1 is-sticky"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar is-rounded" src="https://s2.loli.net/2022/04/18/JlfLcsOwU8myTbB.jpg" alt="i呼啸冷冷"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">i呼啸冷冷</p><p class="is-size-6 is-block">Web Developer</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>Earth, Solar System</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">文章</p><a href="/archives"><p class="title">27</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">分类</p><a href="/categories"><p class="title">6</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">标签</p><a href="/tags"><p class="title">7</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/ppoffice" target="_blank" rel="noopener">关注我</a></div><div class="level is-mobile is-multiline"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Github" href="https://github.com/ppoffice"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Facebook" href="https://facebook.com"><i class="fab fa-facebook"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Twitter" href="https://twitter.com"><i class="fab fa-twitter"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Dribbble" href="https://dribbble.com"><i class="fab fa-dribbble"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="RSS" href="/"><i class="fas fa-rss"></i></a></div></div></div><div class="card widget" id="toc" data-type="toc"><div class="card-content"><div class="menu"><h3 class="menu-label">目录</h3><ul class="menu-list"><li><a class="level is-mobile" href="#一、前端有哪些安全性问题及危害"><span class="level-left"><span class="level-item">1</span><span class="level-item">一、前端有哪些安全性问题及危害</span></span></a></li><li><a class="level is-mobile" href="#二、安全性检测工具"><span class="level-left"><span class="level-item">2</span><span class="level-item">二、安全性检测工具</span></span></a></li><li><a class="level is-mobile" href="#三、如何防范"><span class="level-left"><span class="level-item">3</span><span class="level-item">三、如何防范</span></span></a></li></ul></div></div><style>#toc .menu-list > li > a.is-active + .menu-list { display: block; }#toc .menu-list > li > a + .menu-list { display: none; }</style><script src="/js/toc.js" defer></script></div><div class="column-right-shadow is-hidden-widescreen is-sticky"></div></div><div class="column column-right is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only order-3 is-sticky"><div class="card widget" data-type="recent-posts"><div class="card-content"><h3 class="menu-label">最新文章</h3><article class="media"><figure class="media-left"><a class="image" href="/2023/11/19/%E5%89%8D%E7%AB%AF/%E9%AB%98%E7%BA%A7/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"><img src="/./img/%E5%89%8D%E7%AB%AF/web.png" alt="设计模式"></a></figure><div class="media-content"><p class="date"><time dateTime="2023-11-19T14:10:43.000Z">2023-11-19</time></p><p class="title"><a href="/2023/11/19/%E5%89%8D%E7%AB%AF/%E9%AB%98%E7%BA%A7/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a></p><p class="categories"><a href="/categories/%E5%89%8D%E7%AB%AF/">前端</a></p></div></article><article class="media"><figure class="media-left"><a class="image" href="/2023/09/29/%E5%89%8D%E7%AB%AF/%E9%AB%98%E7%BA%A7/%E5%89%8D%E7%AB%AF%E5%AE%89%E5%85%A8%E6%80%A7/"><img src="/./img/%E5%89%8D%E7%AB%AF/web.png" alt="前端安全性"></a></figure><div class="media-content"><p class="date"><time dateTime="2023-09-29T14:10:43.000Z">2023-09-29</time></p><p class="title"><a href="/2023/09/29/%E5%89%8D%E7%AB%AF/%E9%AB%98%E7%BA%A7/%E5%89%8D%E7%AB%AF%E5%AE%89%E5%85%A8%E6%80%A7/">前端安全性</a></p><p class="categories"><a href="/categories/%E5%89%8D%E7%AB%AF/">前端</a></p></div></article><article class="media"><figure class="media-left"><a class="image" href="/2023/08/19/%E5%89%8D%E7%AB%AF/%E9%AB%98%E7%BA%A7/%E4%BD%8E%E4%BB%A3%E7%A0%81%E8%AE%BE%E8%AE%A1%E5%99%A8%E7%9A%84%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86/"><img src="/./img/%E5%89%8D%E7%AB%AF/web.png" alt="低代码设计器的实现原理"></a></figure><div class="media-content"><p class="date"><time dateTime="2023-08-19T14:10:43.000Z">2023-08-19</time></p><p class="title"><a href="/2023/08/19/%E5%89%8D%E7%AB%AF/%E9%AB%98%E7%BA%A7/%E4%BD%8E%E4%BB%A3%E7%A0%81%E8%AE%BE%E8%AE%A1%E5%99%A8%E7%9A%84%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86/">低代码设计器的实现原理</a></p><p class="categories"><a href="/categories/%E5%89%8D%E7%AB%AF/">前端</a></p></div></article><article class="media"><figure class="media-left"><a class="image" href="/2023/06/19/%E5%89%8D%E7%AB%AF/%E9%AB%98%E7%BA%A7/%E5%8F%91%E5%B8%83%20npm%20%E5%8C%85/"><img src="/./img/%E5%89%8D%E7%AB%AF/web.png" alt="发布 npm 包"></a></figure><div class="media-content"><p class="date"><time dateTime="2023-06-19T14:10:43.000Z">2023-06-19</time></p><p class="title"><a href="/2023/06/19/%E5%89%8D%E7%AB%AF/%E9%AB%98%E7%BA%A7/%E5%8F%91%E5%B8%83%20npm%20%E5%8C%85/">发布 npm 包</a></p><p class="categories"><a href="/categories/%E5%89%8D%E7%AB%AF/">前端</a></p></div></article><article class="media"><figure class="media-left"><a class="image" href="/2023/05/19/%E5%89%8D%E7%AB%AF/%E9%AB%98%E7%BA%A7/%E4%BD%8E%E4%BB%A3%E7%A0%81%E7%AE%80%E4%BB%8B/"><img src="/./img/%E5%89%8D%E7%AB%AF/web.png" alt="低代码简介"></a></figure><div class="media-content"><p class="date"><time dateTime="2023-05-19T14:10:43.000Z">2023-05-19</time></p><p class="title"><a href="/2023/05/19/%E5%89%8D%E7%AB%AF/%E9%AB%98%E7%BA%A7/%E4%BD%8E%E4%BB%A3%E7%A0%81%E7%AE%80%E4%BB%8B/">低代码简介</a></p><p class="categories"><a href="/categories/%E5%89%8D%E7%AB%AF/">前端</a></p></div></article></div></div></div></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="https://s2.loli.net/2022/04/18/JlfLcsOwU8myTbB.jpg" alt="冷冷" height="28"></a><p class="is-size-7"><span>&copy; 2024 冷冷</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Discuss on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus/discussions"><i class="fas fa-comments"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("zh-cn");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="/js/column.js"></script><script src="/js/animation.js"></script><a id="back-to-top" title="回到顶端" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/js/back_to_top.js" defer></script><!--!--><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.js" defer></script><script>window.addEventListener("load", () => {
+      window.cookieconsent.initialise({
+        type: "info",
+        theme: "edgeless",
+        static: false,
+        position: "bottom-left",
+        content: {
+          message: "此网站使用Cookie来改善您的体验。",
+          dismiss: "知道了！",
+          allow: "允许使用Cookie",
+          deny: "拒绝",
+          link: "了解更多",
+          policy: "Cookie政策",
+          href: "https://www.cookiesandyou.com/",
+        },
+        palette: {
+          popup: {
+            background: "#edeff5",
+            text: "#838391"
+          },
+          button: {
+            background: "#4b81e8"
+          },
+        },
+      });
+    });</script><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><!--!--><div id="outdated"><h6>Your browser is out-of-date!</h6><p>Update your browser to view this website correctly.&amp;npsb;<a id="btnUpdateBrowser" target="_blank" rel="noopener" href="http://outdatedbrowser.com/">Update my browser now </a></p><p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">×</a></p></div><script src="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.js" defer></script><script>window.addEventListener("load", function () {
+            outdatedBrowser({
+                bgColor: '#f25648',
+                color: '#ffffff',
+                lowerThan: 'object-fit' // display on IE11 or below
+            });
+        });</script><!--!--><!--!--><!--!--><script src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="想要查找什么..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"想要查找什么...","untitled":"(无标题)","posts":"文章","pages":"页面","categories":"分类","tags":"标签"});
+        });</script></body></html>

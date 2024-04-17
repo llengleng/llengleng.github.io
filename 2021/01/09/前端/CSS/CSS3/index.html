@@ -1,0 +1,283 @@
+<!doctype html>
+<html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><title>CSS3 - 冷冷</title><link rel="manifest" href="/manifest.json"><meta name="theme-color" content="#f7f7f7"><meta name="application-name" content="Icaurs - Hexo Theme"><meta name="msapplication-TileImage" content="https://s2.loli.net/2022/04/18/JlfLcsOwU8myTbB.jpg"><meta name="msapplication-TileColor" content="#f7f7f7"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Icaurs - Hexo Theme"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="样式边框 box-shadow：用来给边框添加阴影"><meta property="og:type" content="blog"><meta property="og:title" content="CSS3"><meta property="og:url" content="http://example.com/2021/01/09/%E5%89%8D%E7%AB%AF/CSS/CSS3/"><meta property="og:site_name" content="冷冷"><meta property="og:description" content="样式边框 box-shadow：用来给边框添加阴影"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="http://example.com/img/%E5%89%8D%E7%AB%AF/css.png"><meta property="article:published_time" content="2021-01-09T13:10:43.000Z"><meta property="article:modified_time" content="2021-05-10T04:04:00.000Z"><meta property="article:author" content="冷冷"><meta property="article:tag" content="CSS"><meta property="twitter:card" content="summary"><meta property="twitter:image:src" content="http://example.com/img/%E5%89%8D%E7%AB%AF/css.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com/2021/01/09/%E5%89%8D%E7%AB%AF/CSS/CSS3/"},"headline":"CSS3","image":["http://example.com/img/%E5%89%8D%E7%AB%AF/css.png"],"datePublished":"2021-01-09T13:10:43.000Z","dateModified":"2021-05-10T04:04:00.000Z","author":{"@type":"Person","name":"冷冷"},"publisher":{"@type":"Organization","name":"冷冷","logo":{"@type":"ImageObject","url":"https://s2.loli.net/2022/04/18/JlfLcsOwU8myTbB.jpg"}},"description":"样式边框 box-shadow：用来给边框添加阴影"}</script><link rel="canonical" href="http://example.com/2021/01/09/%E5%89%8D%E7%AB%AF/CSS/CSS3/"><link rel="icon" href="https://s2.loli.net/2022/04/18/JlfLcsOwU8myTbB.jpg"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.0.0/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><!--!--><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css"><script src="https://www.googletagmanager.com/gtag/js?id=UA-72437521-5" async></script><script>window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+    
+        gtag('config', 'UA-72437521-5');</script><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.css"><style>.pace{-webkit-pointer-events:none;pointer-events:none;-webkit-user-select:none;-moz-user-select:none;user-select:none}.pace-inactive{display:none}.pace .pace-progress{background:#3273dc;position:fixed;z-index:2000;top:0;right:100%;width:100%;height:2px}</style><script src="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/pace.min.js"></script><!--!--><!--!--><!-- hexo injector head_end start --><script>
+  (function () {
+      function switchTab() {
+          if (!location.hash) {
+            return;
+          }
+
+          const id = '#' + CSS.escape(location.hash.substring(1));
+          const $tabMenu = document.querySelector(`.tabs a[href="${id}"]`);
+          if (!$tabMenu) {
+            return;
+          }
+
+          const $tabMenuContainer = $tabMenu.parentElement.parentElement;
+          Array.from($tabMenuContainer.children).forEach($menu => $menu.classList.remove('is-active'));
+          Array.from($tabMenuContainer.querySelectorAll('a'))
+              .map($menu => document.getElementById($menu.getAttribute("href").substring(1)))
+              .forEach($content => $content.classList.add('is-hidden'));
+
+          if ($tabMenu) {
+              $tabMenu.parentElement.classList.add('is-active');
+          }
+          const $activeTab = document.querySelector(id);
+          if ($activeTab) {
+              $activeTab.classList.remove('is-hidden');
+          }
+      }
+      switchTab();
+      window.addEventListener('hashchange', switchTab, false);
+  })();
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"></head><body class="is-3-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="https://s2.loli.net/2022/04/18/JlfLcsOwU8myTbB.jpg" alt="冷冷" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">主页</a><a class="navbar-item" href="/archives">归档</a><a class="navbar-item" href="/categories">分类</a><a class="navbar-item" href="/tags">标签</a><a class="navbar-item" href="/about">关于我</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Discuss on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus/discussions"><i class="fas fa-comments"></i></a><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a><a class="navbar-item is-hidden-tablet catalogue" title="目录" href="javascript:;"><i class="fas fa-list-ul"></i></a><a class="navbar-item search" title="搜索" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-6-widescreen"><div class="card"><div class="card-image"><span class="image is-7by3"><img class="fill" src="/./img/%E5%89%8D%E7%AB%AF/css.png" alt="CSS3"></span></div><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2021-01-09T13:10:43.000Z" title="2021/1/9 21:10:43">2021-01-09</time>发表</span><span class="level-item"><a class="link-muted" href="/categories/CSS/">CSS</a></span><span class="level-item">19 分钟读完 (大约2798个字)</span></div></div><h1 class="title is-3 is-size-4-mobile">CSS3</h1><div class="content"><h1 id="样式"><a href="#样式" class="headerlink" title="样式"></a>样式</h1><h2 id="边框"><a href="#边框" class="headerlink" title="边框"></a>边框</h2><ol>
+<li>box-shadow：用来给边框添加阴影</li>
+</ol>
+<span id="more"></span>
+
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">box-shadow</span>: h-shadow v-shadow blur spread color inset;</span><br><span class="line"></span><br><span class="line">//可以设置多个阴影，多个阴影之间用逗号分隔</span><br><span class="line"><span class="attribute">box-shadow</span>: <span class="number">0</span> <span class="number">5px</span> <span class="number">10px</span> black, <span class="number">0</span> <span class="number">10px</span> <span class="number">20px</span> <span class="built_in">rgba</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0.5</span>);</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>h-shadow</strong>：表示水平方向的阴影偏移量，可以是负值（向左偏移）或正值（向右偏移）。</li>
+<li><strong>v-shadow</strong>：表示垂直方向的阴影偏移量，可以是负值（向上偏移）或正值（向下偏移）。</li>
+<li><strong>blur</strong>：表示模糊半径，值越大，阴影越模糊，为 0 时没有模糊效果。</li>
+<li><strong>spread</strong>：表示阴影的尺寸，为正值时会增加阴影的尺寸，为负值时会减少阴影的尺寸。</li>
+<li><strong>color</strong>：表示阴影的颜色，可以使用颜色关键字、十六进制值、RGB 值等。</li>
+<li><strong>inset</strong>：可选值，表示阴影是否为内阴影（inset）。</li>
+</ul>
+<ol start="2">
+<li>border-image：使用图像创建一个边框</li>
+</ol>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">border-image</span>: source slice width outset repeat;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>source</strong>：指定用作边框的图像路径。可以是图片的 URL，也可以是 <strong>none</strong>，表示不使用图像，仅使用 CSS 定义的边框样式。</li>
+<li><strong>slice</strong>：指定图片如何被分割成九个区域。这个值通常是一个数值或百分比，用于定义四条边框分割图像的位置。</li>
+<li><strong>width</strong>：指定边框的宽度。可以是像素、百分比或其他长度单位。</li>
+<li><strong>outset</strong>：可选项，指定边框图像的外部填充（通常用于创建立体效果）。</li>
+<li><strong>repeat</strong>：可选项，指定边框图像的重复方式，可以是 <strong>stretch</strong>（拉伸）、<strong>repeat</strong>（平铺）、<strong>round</strong>（拉伸并平铺）、或者指定一个数值表示图像重复的次数。</li>
+</ul>
+<h2 id="圆角"><a href="#圆角" class="headerlink" title="圆角"></a>圆角</h2><p>border-radius：用于创建圆角：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">border-radius</span>: value;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>四个值:</strong> 第一个值为左上角，第二个值为右上角，第三个值为右下角，第四个值为左下角。</li>
+<li><strong>三个值:</strong> 第一个值为左上角, 第二个值为右上角和左下角，第三个值为右下角</li>
+<li><strong>两个值:</strong> 第一个值为左上角与右下角，第二个值为右上角与左下角</li>
+<li><strong>一个值：</strong> 四个圆角值相同</li>
+</ul>
+<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><ul>
+<li><p>background-image</p>
+</li>
+<li><p>background-size</p>
+</li>
+<li><p>background-origin：指定了背景图像的位置区域。</p>
+</li>
+<li><ul>
+<li>content-box, padding-box,和 border-box区域内可以放置背景图像。</li>
+</ul>
+</li>
+<li><p>background-clip：背景剪裁属性从指定位置开始绘制。</p>
+</li>
+</ul>
+<h2 id="文本"><a href="#文本" class="headerlink" title="文本"></a>文本</h2><ul>
+<li>text-shadow：用于文本阴影</li>
+<li>text-overflow：指定应向用户如何显示溢出内容</li>
+<li>word-wrap：自动换行属性允许您强制文本换行，即使这意味着分裂它中间的一个字</li>
+<li>word-break：指定换行规则</li>
+</ul>
+<h2 id="渐变"><a href="#渐变" class="headerlink" title="渐变"></a>渐变</h2><ul>
+<li>线性渐变（Linear Gradients）- 向下&#x2F;向上&#x2F;向左&#x2F;向右&#x2F;对角方向</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">//使用方向语法：</span><br><span class="line"><span class="attribute">background-image</span>: <span class="built_in">linear-gradient</span>(direction, color-stop1, color-stop2, ...);</span><br><span class="line"></span><br><span class="line">//使用角度语法：</span><br><span class="line"><span class="attribute">background-image</span>: <span class="built_in">linear-gradient</span>(angle, color-stop1, color-stop2);</span><br><span class="line"></span><br><span class="line">//函数用于重复线性渐变：</span><br><span class="line">repeating-linear-gradient()</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>径向渐变（Radial Gradients）- 由它们的中心定义</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">//语法：</span><br><span class="line"><span class="attribute">background-image</span>: <span class="built_in">radial-gradient</span>(shape size at position, start-color, ..., last-color);</span><br><span class="line">   </span><br><span class="line">//函数用于重复径向渐变：</span><br><span class="line">repeating-radial-gradient() </span><br></pre></td></tr></table></figure>
+
+<h2 id="2D-3D-转换"><a href="#2D-3D-转换" class="headerlink" title="2D&#x2F;3D 转换"></a>2D&#x2F;3D 转换</h2><p><strong>定义：</strong>CSS <strong>transform</strong> 属性允许你旋转，缩放，倾斜或平移给定元素。</p>
+<p><strong>语法：</strong></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* Keyword values */</span></span><br><span class="line"><span class="attribute">transform</span>: none;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* Function values */</span></span><br><span class="line"><span class="attribute">transform</span>: <span class="built_in">matrix</span>(<span class="number">1.0</span>, <span class="number">2.0</span>, <span class="number">3.0</span>, <span class="number">4.0</span>, <span class="number">5.0</span>, <span class="number">6.0</span>);</span><br><span class="line"><span class="attribute">transform</span>: <span class="built_in">translate</span>(<span class="number">12px</span>, <span class="number">50%</span>); //平移</span><br><span class="line"><span class="attribute">transform</span>: <span class="built_in">translateX</span>(<span class="number">2em</span>);</span><br><span class="line"><span class="attribute">transform</span>: <span class="built_in">translateY</span>(<span class="number">3in</span>);</span><br><span class="line"><span class="attribute">transform</span>: <span class="built_in">scale</span>(<span class="number">2</span>, <span class="number">0.5</span>);  //缩放</span><br><span class="line"><span class="attribute">transform</span>: <span class="built_in">scaleX</span>(<span class="number">2</span>);</span><br><span class="line"><span class="attribute">transform</span>: <span class="built_in">scaleY</span>(<span class="number">0.5</span>);</span><br><span class="line"><span class="attribute">transform</span>: <span class="built_in">rotate</span>(<span class="number">0.5turn</span>);    //旋转</span><br><span class="line"><span class="attribute">transform</span>: <span class="built_in">skew</span>(<span class="number">30deg</span>, <span class="number">20deg</span>);   //歪斜</span><br><span class="line"><span class="attribute">transform</span>: <span class="built_in">skewX</span>(<span class="number">30deg</span>);</span><br><span class="line"><span class="attribute">transform</span>: <span class="built_in">skewY</span>(<span class="number">1.07rad</span>);</span><br><span class="line"><span class="attribute">transform</span>: <span class="built_in">matrix3d</span>(<span class="number">1.0</span>, <span class="number">2.0</span>, <span class="number">3.0</span>, <span class="number">4.0</span>, <span class="number">5.0</span>, <span class="number">6.0</span>, <span class="number">7.0</span>, <span class="number">8.0</span>, <span class="number">9.0</span>, <span class="number">10.0</span>, <span class="number">11.0</span>, <span class="number">12.0</span>, <span class="number">13.0</span>, <span class="number">14.0</span>, <span class="number">15.0</span>, <span class="number">16.0</span>);</span><br><span class="line"><span class="attribute">transform</span>: <span class="built_in">translate3d</span>(<span class="number">12px</span>, <span class="number">50%</span>, <span class="number">3em</span>);</span><br><span class="line"><span class="attribute">transform</span>: <span class="built_in">translateZ</span>(<span class="number">2px</span>);</span><br><span class="line"><span class="attribute">transform</span>: <span class="built_in">scale3d</span>(<span class="number">2.5</span>, <span class="number">1.2</span>, <span class="number">0.3</span>);</span><br><span class="line"><span class="attribute">transform</span>: <span class="built_in">scaleZ</span>(<span class="number">0.3</span>);</span><br><span class="line"><span class="attribute">transform</span>: <span class="built_in">rotate3d</span>(<span class="number">1</span>, <span class="number">2.0</span>, <span class="number">3.0</span>, <span class="number">10deg</span>);</span><br><span class="line"><span class="attribute">transform</span>: <span class="built_in">rotateX</span>(<span class="number">10deg</span>);</span><br><span class="line"><span class="attribute">transform</span>: <span class="built_in">rotateY</span>(<span class="number">10deg</span>);</span><br><span class="line"><span class="attribute">transform</span>: <span class="built_in">rotateZ</span>(<span class="number">10deg</span>);</span><br><span class="line"><span class="attribute">transform</span>: <span class="built_in">perspective</span>(<span class="number">17px</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">/* Multiple function values */</span></span><br><span class="line"><span class="attribute">transform</span>: <span class="built_in">translateX</span>(<span class="number">10px</span>) <span class="built_in">rotate</span>(<span class="number">10deg</span>) <span class="built_in">translateY</span>(<span class="number">5px</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">/* Global values */</span></span><br><span class="line"><span class="attribute">transform</span>: inherit;</span><br><span class="line"><span class="attribute">transform</span>: initial;</span><br><span class="line"><span class="attribute">transform</span>: unset;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>translate()：根据左(X轴)和顶部(Y轴)位置给定的参数，从当前元素位置移动</p>
+</li>
+<li><p>rotate()：在一个给定度数顺时针旋转的元素。负值是允许的，这样是元素逆时针旋转</p>
+</li>
+<li><p>scale()：该元素增加或减少的大小，取决于宽度（X轴）和高度（Y轴）的参数</p>
+</li>
+<li><p>skew()：包含两个参数值，分别表示X轴和Y轴倾斜的角度，如果第二个参数为空，则默认为0，参数为负表示向相反方向倾斜。</p>
+</li>
+<li><ul>
+<li>skewX(<angle>);表示只在X轴(水平方向)倾斜。</li>
+<li>skewY(<angle>);表示只在Y轴(垂直方向)倾斜。</li>
+</ul>
+</li>
+<li><p>matrix()：有六个参数，包含旋转，缩放，移动（平移）和倾斜功能。</p>
+</li>
+<li><p>rotateX()：围绕其在一个给定度数X轴旋转的元素</p>
+</li>
+<li><p>rotateY()：围绕其在一个给定度数Y轴旋转的元素</p>
+</li>
+<li><p>要应用的一个或多个 CSS 变换函数。变换函数按从左到右的顺序相乘，这意味着复合变换按从右到左的顺序有效地应用。</p>
+</li>
+<li><p>none：不应用任何变换。</p>
+</li>
+<li><p><strong>transform-origin</strong> <strong>属性</strong>更改一个元素变形的原点：</p>
+</li>
+<li><p><strong>transform-origin 属性</strong>可以使用一个，两个或三个值来指定，其中每个值都表示一个偏移量。没有明确定义的偏移将重置为其对应的初始值。</p>
+</li>
+</ul>
+<p>如果定义了两个或更多值并且没有值的关键字，或者唯一使用的关键字是center，则第一个值表示水平偏移量，第二个值表示垂直偏移量。</p>
+<ul>
+<li><p>一个值：</p>
+</li>
+<li><ul>
+<li>必须是长度，百分比值，或 left, center, right, top, bottom关键字中的一个。</li>
+</ul>
+</li>
+<li><p>两个值：</p>
+</li>
+<li><ul>
+<li>其中一个必须是长度，百分比值，或left, center, right关键字中的一个。</li>
+<li>另一个必须是长度，百分比值，或top, center, bottom关键字中的一个。</li>
+</ul>
+</li>
+<li><p>三个值：</p>
+</li>
+<li><ul>
+<li>前两个值和只有两个值时的用法相同。</li>
+<li>第三个值必须是长度。它始终代表 Z 轴偏移量。</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">transform-origin</span>: center;</span><br><span class="line"><span class="attribute">transform-origin</span>: top left;</span><br></pre></td></tr></table></figure>
+
+<h1 id="动画"><a href="#动画" class="headerlink" title="动画"></a>动画</h1><h2 id="过度"><a href="#过度" class="headerlink" title="过度"></a>过度</h2><p><strong>定义：</strong>过渡可以为一个元素在<strong>不同状态之间切换</strong>的时候定义不同的过渡效果。比如在不同的伪元素()之间切换，像是 <code>:hover</code>,<code>:active</code>或者通过 JS 实现的状态变化。</p>
+<p><strong>语法：</strong></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* Apply to 1 property */</span></span><br><span class="line"><span class="comment">/* property name | duration */</span></span><br><span class="line"><span class="attribute">transition</span>: margin-right <span class="number">4s</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* property name | duration | delay */</span></span><br><span class="line"><span class="attribute">transition</span>: margin-right <span class="number">4s</span> <span class="number">1s</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* property name | duration | timing function */</span></span><br><span class="line"><span class="attribute">transition</span>: margin-right <span class="number">4s</span> ease-in-out;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* property name | duration | timing function | delay */</span></span><br><span class="line"><span class="attribute">transition</span>: margin-right <span class="number">4s</span> ease-in-out <span class="number">1s</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* Apply to 2 properties */</span></span><br><span class="line"><span class="attribute">transition</span>: margin-right <span class="number">4s</span>, color <span class="number">1s</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* Apply to all changed properties */</span></span><br><span class="line"><span class="attribute">transition</span>: all <span class="number">0.5s</span> ease-out;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* Global values */</span></span><br><span class="line"><span class="attribute">transition</span>: inherit;</span><br><span class="line"><span class="attribute">transition</span>: initial;</span><br><span class="line"><span class="attribute">transition</span>: unset;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>CSS transitions 可以决定哪些属性发生动画效果 (明确地列出这些属性)：何时开始 (设置 delay），持续多久 (设置 duration) 以及如何动画 (定义<em>timing function</em>，比如匀速地或先快后慢)。</li>
+<li>transition 属性可以被指定为一个或多个 CSS 属性的过渡效果，多个属性之间用<strong>逗号</strong>进行分隔。</li>
+<li>可以设置过渡的属性一般是数值型的，例如宽高、颜色、间距等。</li>
+</ul>
+<p>每个单属性转换都描述了应该应用于单个属性的转换（或特殊值all和none）。这包括：</p>
+<ul>
+<li><p>零或一个值，表示转换应适用的属性。这可能是以下任何一种：</p>
+</li>
+<li><ul>
+<li>关键字none</li>
+<li>关键字all</li>
+<li>命名 CSS 属性的标识符 。</li>
+</ul>
+</li>
+<li><p>零或一个时间函数值表示要使用的过渡函数</p>
+</li>
+<li><p>零，一或两个时间值。可以解析为时间的第一个值被分配给 duration ，并且可以解析为时间的第二个值被分配给 delay 。</p>
+</li>
+<li><p>当transition属性的值个数超过可以接收的值的个数时，多余的值都会被忽略掉，不再进行解析。</p>
+</li>
+<li><p>过渡是一次性的不能循环，如果想要<strong>循环</strong>需要使用「@keyframes」关键字。</p>
+</li>
+</ul>
+<h2 id="动画-1"><a href="#动画-1" class="headerlink" title="动画"></a>动画</h2><p>@keyframes 规则是创建动画。</p>
+<p>@keyframes 规则内指定一个 CSS 样式和动画将逐步从目前的样式更改为新的样式。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@keyframes</span> myfirst</span><br><span class="line">&#123;</span><br><span class="line">  <span class="selector-tag">from</span> &#123;<span class="attribute">background</span>: red;&#125;</span><br><span class="line">  <span class="selector-tag">to</span> &#123;<span class="attribute">background</span>: yellow;&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@-webkit-keyframes</span> myfirst /* Safari 与 Chrome */</span><br><span class="line">&#123;</span><br><span class="line">  <span class="selector-tag">from</span> &#123;<span class="attribute">background</span>: red;&#125;</span><br><span class="line">  <span class="selector-tag">to</span> &#123;<span class="attribute">background</span>: yellow;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>当在 <strong>@keyframes</strong> 创建动画，把它绑定到一个选择器，否则动画不会有任何效果。</p>
+<p>指定至少这两个CSS3的动画属性绑定向一个选择器：</p>
+<ul>
+<li>规定动画的名称</li>
+<li>规定动画的时长</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="attribute">animation</span>: myfirst <span class="number">5s</span>;</span><br><span class="line">    -webkit-<span class="attribute">animation</span>: myfirst <span class="number">5s</span>; <span class="comment">/* Safari 与 Chrome */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="响应式-自适应"><a href="#响应式-自适应" class="headerlink" title="响应式&#x2F;自适应"></a>响应式&#x2F;自适应</h1><h2 id="em"><a href="#em" class="headerlink" title="em"></a>em</h2><p>使用 em 值创建<strong>动态</strong>或计算字体大小（历史上，em 单位是从给定字体中大写字母“M”的宽度派生的）。数字值作为当前元素的 font-size 属性的乘数。考虑以下示例：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">p</span> &#123;</span><br><span class="line">  <span class="attribute">font-size</span>: <span class="number">2em</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在这种情况下，<code>&lt;p&gt;</code>元素的大小将会是其通过继承得到的 font-size 计算值的两倍。因此，1em 的 font-size 等于元素所使用的 font-size 计算值。</p>
+<p>为了计算所需像素值的等效 em 值，你可以使用以下公式：</p>
+<blockquote>
+<p>em &#x3D; 希望得到的像素大小 &#x2F; 父元素字体像素大小</p>
+</blockquote>
+<p>例如，假设页面的 <code>&lt;body&gt;</code>的 font-size 设置为 16px。如果你想要的字体大小为 12px，那么应该指定 0.75em（因为 12&#x2F;16 &#x3D; 0.75）。同样，如果你想要字体大小为 10px，则应指定 0.625em（10&#x2F;16 &#x3D; 0.625）；对于 22px，请指定 1.375em（22&#x2F;16）。</p>
+<p>CSS 中的 em 是非常有用的单位，因为它会根据读者选择使用的字体自动调整其长度。</p>
+<p>记住一个重要事实：em 值是复合的。看下面的 HTML 和 CSS：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">html</span> &#123;</span><br><span class="line">  <span class="attribute">font-size</span>: <span class="number">100%</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">span</span> &#123;</span><br><span class="line">  <span class="attribute">font-size</span>: <span class="number">1.6em</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">span</span>&gt;</span>Outer <span class="tag">&lt;<span class="name">span</span>&gt;</span>inner<span class="tag">&lt;/<span class="name">span</span>&gt;</span> outer<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>结果：<img src="https://cdn.nlark.com/yuque/0/2023/png/22635263/1700038759145-cc48232e-cdbd-4572-a8dd-597afd10750b.png" alt="img"></p>
+<p>假设浏览器的默认 font-size 为 16px，则单词“outer”将渲染为 25.6px，但单词“inner”将渲染为 40.96px。这是因为内部 <code>&lt;span&gt;</code> 的 font-size 为 1.6em，相对于其父级的 font-size，而其父级又相对于其父级的 font-size。这通常被称为<strong>复合</strong>。</p>
+<h2 id="rem"><a href="#rem" class="headerlink" title="rem"></a>rem</h2><p>rem 值的发明是为了<strong>避免复合问题</strong>。rem 值是相对于根 html 元素而不是父元素的。换句话说，它允许你以相对方式指定字体大小，而不受到父元素大小的影响，从而消除了复合问题。</p>
+<p>下面的 CSS 与前一个示例几乎相同。唯一的例外是单位已更改为 rem。</p>
+<p>结果：<img src="https://cdn.nlark.com/yuque/0/2023/png/22635263/1700038819600-f0bf558f-8995-4a70-96e9-934631b32aa7.png" alt="img"></p>
+<p>在这个例子中，“outer inner outer”这些单词都以 25.6 像素的大小显示（假设浏览器的 font-size 已保留默认值 16px）。</p>
+<h2 id="vh-vw"><a href="#vh-vw" class="headerlink" title="vh&#x2F;vw"></a>vh&#x2F;vw</h2><table>
+<thead>
+<tr>
+<th>vw</th>
+<th>视口宽度的 1%。</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>vh</td>
+<td>视口高度的 1%。</td>
+</tr>
+</tbody></table>
+</div><div class="article-licensing box"><div class="licensing-title"><p>CSS3</p><p><a href="http://example.com/2021/01/09/前端/CSS/CSS3/">http://example.com/2021/01/09/前端/CSS/CSS3/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>作者</h6><p>冷冷</p></div></div><div class="level-item is-narrow"><div><h6>发布于</h6><p>2021-01-09</p></div></div><div class="level-item is-narrow"><div><h6>更新于</h6><p>2021-05-10</p></div></div><div class="level-item is-narrow"><div><h6>许可协议</h6><p><a class="icons" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="icon fab fa-creative-commons"></i></a><a class="" rel="noopener" target="_blank" title="CC BY-NC-SA 4.0" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a></p></div></div></div></div></div><div class="article-tags is-size-7 mb-4"><span class="mr-2">#</span><a class="link-muted mr-2" rel="tag" href="/tags/CSS/">CSS</a></div><div class="sharethis-inline-share-buttons"></div><script src="//platform-api.sharethis.com/js/sharethis.js#property=5ab6f60ace89f00013641890&amp;product=inline-share-buttons" defer></script></article></div><!--!--><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="/2021/04/20/%E5%89%8D%E7%AB%AF/HTML/HTML5/"><i class="level-item fas fa-chevron-left"></i><span class="level-item">HTML5</span></a></div><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/2021/01/09/%E5%89%8D%E7%AB%AF/JavaScript/JSX%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/"><span class="level-item">JSX 基本语法</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><!--!--></div><div class="column column-left is-4-tablet is-4-desktop is-3-widescreen  order-1 is-sticky"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar is-rounded" src="https://s2.loli.net/2022/04/18/JlfLcsOwU8myTbB.jpg" alt="i呼啸冷冷"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">i呼啸冷冷</p><p class="is-size-6 is-block">Web Developer</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>Earth, Solar System</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">文章</p><a href="/archives"><p class="title">27</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">分类</p><a href="/categories"><p class="title">6</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">标签</p><a href="/tags"><p class="title">7</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/ppoffice" target="_blank" rel="noopener">关注我</a></div><div class="level is-mobile is-multiline"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Github" href="https://github.com/ppoffice"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Facebook" href="https://facebook.com"><i class="fab fa-facebook"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Twitter" href="https://twitter.com"><i class="fab fa-twitter"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Dribbble" href="https://dribbble.com"><i class="fab fa-dribbble"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="RSS" href="/"><i class="fas fa-rss"></i></a></div></div></div><div class="card widget" id="toc" data-type="toc"><div class="card-content"><div class="menu"><h3 class="menu-label">目录</h3><ul class="menu-list"><li><a class="level is-mobile" href="#样式"><span class="level-left"><span class="level-item">1</span><span class="level-item">样式</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#边框"><span class="level-left"><span class="level-item">1.1</span><span class="level-item">边框</span></span></a></li><li><a class="level is-mobile" href="#圆角"><span class="level-left"><span class="level-item">1.2</span><span class="level-item">圆角</span></span></a></li><li><a class="level is-mobile" href="#背景"><span class="level-left"><span class="level-item">1.3</span><span class="level-item">背景</span></span></a></li><li><a class="level is-mobile" href="#文本"><span class="level-left"><span class="level-item">1.4</span><span class="level-item">文本</span></span></a></li><li><a class="level is-mobile" href="#渐变"><span class="level-left"><span class="level-item">1.5</span><span class="level-item">渐变</span></span></a></li><li><a class="level is-mobile" href="#2D-3D-转换"><span class="level-left"><span class="level-item">1.6</span><span class="level-item">2D/3D 转换</span></span></a></li></ul></li><li><a class="level is-mobile" href="#动画"><span class="level-left"><span class="level-item">2</span><span class="level-item">动画</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#过度"><span class="level-left"><span class="level-item">2.1</span><span class="level-item">过度</span></span></a></li><li><a class="level is-mobile" href="#动画-1"><span class="level-left"><span class="level-item">2.2</span><span class="level-item">动画</span></span></a></li></ul></li><li><a class="level is-mobile" href="#响应式-自适应"><span class="level-left"><span class="level-item">3</span><span class="level-item">响应式/自适应</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#em"><span class="level-left"><span class="level-item">3.1</span><span class="level-item">em</span></span></a></li><li><a class="level is-mobile" href="#rem"><span class="level-left"><span class="level-item">3.2</span><span class="level-item">rem</span></span></a></li><li><a class="level is-mobile" href="#vh-vw"><span class="level-left"><span class="level-item">3.3</span><span class="level-item">vh/vw</span></span></a></li></ul></li></ul></div></div><style>#toc .menu-list > li > a.is-active + .menu-list { display: block; }#toc .menu-list > li > a + .menu-list { display: none; }</style><script src="/js/toc.js" defer></script></div><div class="column-right-shadow is-hidden-widescreen is-sticky"></div></div><div class="column column-right is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only order-3 is-sticky"><div class="card widget" data-type="recent-posts"><div class="card-content"><h3 class="menu-label">最新文章</h3><article class="media"><figure class="media-left"><a class="image" href="/2023/11/19/%E5%89%8D%E7%AB%AF/%E9%AB%98%E7%BA%A7/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"><img src="/./img/%E5%89%8D%E7%AB%AF/web.png" alt="设计模式"></a></figure><div class="media-content"><p class="date"><time dateTime="2023-11-19T14:10:43.000Z">2023-11-19</time></p><p class="title"><a href="/2023/11/19/%E5%89%8D%E7%AB%AF/%E9%AB%98%E7%BA%A7/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a></p><p class="categories"><a href="/categories/%E5%89%8D%E7%AB%AF/">前端</a></p></div></article><article class="media"><figure class="media-left"><a class="image" href="/2023/09/29/%E5%89%8D%E7%AB%AF/%E9%AB%98%E7%BA%A7/%E5%89%8D%E7%AB%AF%E5%AE%89%E5%85%A8%E6%80%A7/"><img src="/./img/%E5%89%8D%E7%AB%AF/web.png" alt="前端安全性"></a></figure><div class="media-content"><p class="date"><time dateTime="2023-09-29T14:10:43.000Z">2023-09-29</time></p><p class="title"><a href="/2023/09/29/%E5%89%8D%E7%AB%AF/%E9%AB%98%E7%BA%A7/%E5%89%8D%E7%AB%AF%E5%AE%89%E5%85%A8%E6%80%A7/">前端安全性</a></p><p class="categories"><a href="/categories/%E5%89%8D%E7%AB%AF/">前端</a></p></div></article><article class="media"><figure class="media-left"><a class="image" href="/2023/08/19/%E5%89%8D%E7%AB%AF/%E9%AB%98%E7%BA%A7/%E4%BD%8E%E4%BB%A3%E7%A0%81%E8%AE%BE%E8%AE%A1%E5%99%A8%E7%9A%84%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86/"><img src="/./img/%E5%89%8D%E7%AB%AF/web.png" alt="低代码设计器的实现原理"></a></figure><div class="media-content"><p class="date"><time dateTime="2023-08-19T14:10:43.000Z">2023-08-19</time></p><p class="title"><a href="/2023/08/19/%E5%89%8D%E7%AB%AF/%E9%AB%98%E7%BA%A7/%E4%BD%8E%E4%BB%A3%E7%A0%81%E8%AE%BE%E8%AE%A1%E5%99%A8%E7%9A%84%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86/">低代码设计器的实现原理</a></p><p class="categories"><a href="/categories/%E5%89%8D%E7%AB%AF/">前端</a></p></div></article><article class="media"><figure class="media-left"><a class="image" href="/2023/06/19/%E5%89%8D%E7%AB%AF/%E9%AB%98%E7%BA%A7/%E5%8F%91%E5%B8%83%20npm%20%E5%8C%85/"><img src="/./img/%E5%89%8D%E7%AB%AF/web.png" alt="发布 npm 包"></a></figure><div class="media-content"><p class="date"><time dateTime="2023-06-19T14:10:43.000Z">2023-06-19</time></p><p class="title"><a href="/2023/06/19/%E5%89%8D%E7%AB%AF/%E9%AB%98%E7%BA%A7/%E5%8F%91%E5%B8%83%20npm%20%E5%8C%85/">发布 npm 包</a></p><p class="categories"><a href="/categories/%E5%89%8D%E7%AB%AF/">前端</a></p></div></article><article class="media"><figure class="media-left"><a class="image" href="/2023/05/19/%E5%89%8D%E7%AB%AF/%E9%AB%98%E7%BA%A7/%E4%BD%8E%E4%BB%A3%E7%A0%81%E7%AE%80%E4%BB%8B/"><img src="/./img/%E5%89%8D%E7%AB%AF/web.png" alt="低代码简介"></a></figure><div class="media-content"><p class="date"><time dateTime="2023-05-19T14:10:43.000Z">2023-05-19</time></p><p class="title"><a href="/2023/05/19/%E5%89%8D%E7%AB%AF/%E9%AB%98%E7%BA%A7/%E4%BD%8E%E4%BB%A3%E7%A0%81%E7%AE%80%E4%BB%8B/">低代码简介</a></p><p class="categories"><a href="/categories/%E5%89%8D%E7%AB%AF/">前端</a></p></div></article></div></div></div></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="https://s2.loli.net/2022/04/18/JlfLcsOwU8myTbB.jpg" alt="冷冷" height="28"></a><p class="is-size-7"><span>&copy; 2024 冷冷</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Discuss on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus/discussions"><i class="fas fa-comments"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("zh-cn");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="/js/column.js"></script><script src="/js/animation.js"></script><a id="back-to-top" title="回到顶端" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/js/back_to_top.js" defer></script><!--!--><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.js" defer></script><script>window.addEventListener("load", () => {
+      window.cookieconsent.initialise({
+        type: "info",
+        theme: "edgeless",
+        static: false,
+        position: "bottom-left",
+        content: {
+          message: "此网站使用Cookie来改善您的体验。",
+          dismiss: "知道了！",
+          allow: "允许使用Cookie",
+          deny: "拒绝",
+          link: "了解更多",
+          policy: "Cookie政策",
+          href: "https://www.cookiesandyou.com/",
+        },
+        palette: {
+          popup: {
+            background: "#edeff5",
+            text: "#838391"
+          },
+          button: {
+            background: "#4b81e8"
+          },
+        },
+      });
+    });</script><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><!--!--><div id="outdated"><h6>Your browser is out-of-date!</h6><p>Update your browser to view this website correctly.&amp;npsb;<a id="btnUpdateBrowser" target="_blank" rel="noopener" href="http://outdatedbrowser.com/">Update my browser now </a></p><p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">×</a></p></div><script src="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.js" defer></script><script>window.addEventListener("load", function () {
+            outdatedBrowser({
+                bgColor: '#f25648',
+                color: '#ffffff',
+                lowerThan: 'object-fit' // display on IE11 or below
+            });
+        });</script><!--!--><!--!--><!--!--><script src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="想要查找什么..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"想要查找什么...","untitled":"(无标题)","posts":"文章","pages":"页面","categories":"分类","tags":"标签"});
+        });</script></body></html>
